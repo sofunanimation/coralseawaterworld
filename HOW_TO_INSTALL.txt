@@ -1,0 +1,23 @@
+FIVE STARS BOOKING - FIXED ICON PACKAGE (v2)
+
+IMPORTANT: Upload every file in this folder, not the ZIP file itself.
+
+1. Extract the ZIP.
+2. In your GitHub Pages repository, open the folder containing the LIVE index.html.
+   Upload index.html AND all six companion files from this package at that same location.
+   Commit changes. The uploaded website file MUST be named exactly index.html.
+3. Wait for GitHub Pages to finish publishing.
+4. Open your published website in a browser. You should now see the company logo
+   on the PASSWORD screen and as the logo in the booking page header.
+5. To test that the icon files were published, add this to your site's base URL:
+   /five-stars-iphone-icon-v2.png (iPhone) or /five-stars-app-icon-v2.png.
+   On GitHub Pages project sites, be sure to include the repository path.
+6. Delete the OLD F shortcut/app from the phone (not just its home screen tile
+   if the PWA is installed). Open the website again and Add to Home Screen/Install.
+   iPhone: use Safari; Android: use Chrome.
+7. The on-page logo uploader is separate from the phone home-screen app icon.
+
+If the icon still shows F, send your exact PUBLIC GitHub Pages URL and your phone
+type (iPhone or Android), so the live paths and cache can be checked.
+
+No booking/Firestore/printing code has been intentionally changed.

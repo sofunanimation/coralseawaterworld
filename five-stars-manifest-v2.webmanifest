@@ -1,0 +1,24 @@
+{
+  "name": "Five Stars Booking - Coral Sea Water World",
+  "short_name": "Five Stars Booking",
+  "description": "Five Stars So Fun Animation booking system for Coral Sea Water World",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0c0c1e",
+  "theme_color": "#0c0c1e",
+  "icons": [
+    {
+      "src": "five-stars-app-icon-192-v2.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "five-stars-app-icon-v2.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
