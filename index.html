@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Five Stars Booking - Coral Sea Water World</title>
+<!-- Five Stars company logo: versioned icons refresh the phone shortcut -->
+<link rel="icon" type="image/png" sizes="32x32" href="five-stars-favicon-v2.png">
+<link rel="icon" type="image/png" sizes="512x512" href="five-stars-app-icon-v2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="five-stars-iphone-icon-v2.png">
+<link rel="manifest" href="five-stars-manifest-v2.webmanifest">
+<meta name="application-name" content="Five Stars Booking">
+<meta name="apple-mobile-web-app-title" content="Five Stars Booking">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0c0c1e">
+
+<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+:root{--bg:#0c0c1e;--bg2:#151530;--card:rgba(255,255,255,0.06);--cb:rgba(255,107,53,0.25);--accent:#FF6B35;--accent2:#FFD700;--accent3:#FF1493;--success:#00E676;--danger:#FF1744;--text:#fff;--text2:rgba(255,255,255,0.6);--text3:rgba(255,255,255,0.35);--radius:14px}
+*{margin:0;padding:0;box-sizing:border-box}html,body{height:100%}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{Ebackground:transparent}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
+#passwordScreen{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0c0c1e,#1a0a2e,#0c1a2e);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px}
+#passwordScreen .lock-icon{font-size:64px;color:var(--accent);animation:lp 2s ease-in-out infinite}
+@keyframes lp{0%,100%{transform:scale(1);filter:drop-shadow(0 0 10px var(--accent))}50%{transform:scale(1.1);filter:drop-shadow(0 0 25px var(--accent))}}
+.pw-input{width:260px;padding:14px 18px;border-radius:12px;border:2px solid var(--cb);background:var(--card);color:var(--text);font-size:18px;text-align:center;font-family:'Poppins',sans-serif;letter-spacing:8px;outline:none}
+.pw-input:focus{border-color:var(--accent)}
+.pw-btn{width:260px;padding:14px;border:none;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent3));color:#fff;font-size:16px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif}
+.pw-btn:active{transform:scale(.97)}
+.pw-error{color:var(--danger);font-size:13px;min-height:18px}
+.modal-bg{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px}
+.modal-bg.show{display:flex}
+.mbox{background:linear-gradient(135deg,var(--bg2),var(--bg));border:1px solid var(--cb);border-radius:16px;padding:28px 24px;width:100%;max-width:320px;text-align:center;animation:mpop .3s ease}
+@keyframes mpop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+.mbox h3{font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px}
+.mbox p{font-size:12px;color:var(--text2);margin-bottom:16px}
+.mbox .micon{font-size:40px;color:var(--accent2);margin-bottom:12px}
+.mpw-input{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);color:var(--text);font-size:16px;text-align:center;font-family:'Poppins',sans-serif;letter-spacing:6px;outline:none;margin-bottom:6px}
+.mpw-input:focus{border-color:var(--accent)}
+.mpw-error{color:var(--danger);font-size:11px;min-height:16px;margin-bottom:8px}
+.mact{display:flex;gap:8px;margin-top:4px}
+.mact button{flex:1;padding:11px;border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif}
+.mact button:active{transform:scale(.96)}
+.mact .mcfm{background:linear-gradient(135deg,var(--accent),var(--accent3));color:#fff}
+.mact .mcnl{background:rgba(255,255,255,0.08);color:var(--text2);border:1px solid rgba(255,255,255,0.1)}
+#mainApp{display:none;min-height:100vh;padding-bottom:80px}
+.app-header{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,var(--bg2),var(--bg));backdrop-filter:blur(20px);padding:12px 16px 8px;border-bottom:1px solid rgba(255,107,53,0.15)}
+.header-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.logo-area{width:48px;height:48px;border-radius:12px;overflow:hidden;border:2px solid var(--cb);cursor:pointer;position:relative;flex-shrink:0}
+.logo-area img{width:100%;height:100%;object-fit:cover}
+.logo-area .ovl{position:absolute;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
+.logo-area:hover .ovl{opacity:1}
+.lang-sel{display:flex;gap:4px;background:var(--card);border-radius:8px;padding:3px;border:1px solid var(--cb)}
+.lbtn{padding:6px 10px;border:none;border-radius:6px;background:transparent;color:var(--text2);font-size:12px;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif}
+.lbtn.active{background:var(--accent);color:#fff}
+.title-wrap{text-align:center;padding:4px 0;position:relative;min-height:50px}
+.title-text{font-family:'Righteous',cursive;font-size:20px;line-height:1.2;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3),var(--accent2),var(--accent));background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:tsh 4s linear infinite;position:relative;z-index:2}
+@keyframes tsh{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+.fstar{position:absolute;font-size:18px;z-index:1;animation:fst 3s ease-in-out infinite;filter:drop-shadow(0 0 6px currentColor)}
+.fstar:nth-child(1){color:#FF6B35;top:-8px;left:5%}.fstar:nth-child(2){color:#4FC3F7;top:-12px;left:25%;animation-delay:.5s;font-size:14px}.fstar:nth-child(3){color:#FFD700;top:-6px;left:50%;animation-delay:1s}.fstar:nth-child(4){color:#FF1493;top:-14px;left:72%;animation-delay:1.5s;font-size:16px}.fstar:nth-child(5){color:#00E676;top:-10px;left:90%;animation-delay:2s;font-size:13px}
+@keyframes fst{0%,100%{transform:translateY(0) rotate(0deg) scale(1)}25%{transform:translateY(-10px) rotate(90deg) scale(1.2)}50%{transform:translateY(-4px) rotate(180deg) scale(.9)}75%{transform:translateY(-12px) rotate(270deg) scale(1.1)}}
+.hotel-banner{background:linear-gradient(135deg,rgba(255,107,53,0.12),rgba(255,20,147,0.08));border:1px solid var(--cb);border-radius:var(--radius);padding:12px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.hotel-banner i{font-size:22px;color:var(--accent2)}.hotel-banner .hl{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px}.hotel-banner .hn{font-size:16px;font-weight:800;color:var(--accent2)}
+.content{padding:16px;max-width:600px;margin:0 auto}
+.form-card{background:var(--card);border:1px solid var(--cb);border-radius:var(--radius);padding:18px;margin-bottom:14px}
+.form-card-title{font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.form-group{margin-bottom:14px}.form-label{display:block;font-size:12px;font-weight:600;color:var(--text2);margin-bottom:6px}
+.form-input,.form-select{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:var(--text);font-size:15px;font-family:'Poppins',sans-serif;outline:none;-webkit-appearance:none}
+.form-input:focus,.form-select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,107,53,0.15)}.form-select{cursor:pointer}
+.select-wrap{position:relative}.select-wrap::after{content:'\f078';font-family:'Font Awesome 6 Free';font-weight:900;position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:11px;pointer-events:none}
+.form-row{display:flex;gap:10px}.form-row .form-group{flex:1}
+.price-options{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.price-btn{flex:1;min-width:calc(50% - 4px);padding:12px 8px;border:2px solid rgba(255,255,255,0.1);border-radius:10px;background:rgba(255,255,255,0.03);color:var(--text);font-size:15px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;text-align:center;transition:all .25s}
+.price-btn:hover{border-color:var(--accent);background:rgba(255,107,53,0.08)}.price-btn.sel{border-color:var(--accent);background:rgba(255,107,53,0.15);box-shadow:0 0 15px rgba(255,107,53,0.2);color:var(--accent)}
+.price-btn .csym{font-size:20px;display:block;margin-bottom:2px}.price-btn .cval{font-size:18px}
+.calc-display{background:linear-gradient(135deg,rgba(255,107,53,0.1),rgba(255,20,147,0.1));border:1px solid var(--cb);border-radius:12px;padding:14px;margin-top:10px}
+.calc-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:14px}.calc-row.tot{border-top:1px solid var(--cb);margin-top:6px;padding-top:10px;font-size:17px;font-weight:800;color:var(--accent2)}.calc-row .clbl{color:var(--text2)}.calc-row .cval{font-weight:700}
+.book-btn{width:100%;padding:16px;border:none;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent3));color:#fff;font-size:17px;font-weight:800;cursor:pointer;font-family:'Poppins',sans-serif;letter-spacing:1px;box-shadow:0 4px 20px rgba(255,107,53,0.35);margin-top:8px}
+.book-btn:active{transform:scale(.97)}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:linear-gradient(180deg,transparent,var(--bg2) 20%);backdrop-filter:blur(20px);padding:8px 16px 12px;display:flex;gap:8px}
+.nav-btn{flex:1;padding:10px 4px 6px;border:none;border-radius:10px;background:var(--card);color:var(--text2);font-size:10px;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;display:flex;flex-direction:column;align-items:center;gap:3px}.nav-btn i{font-size:18px}.nav-btn.active{background:linear-gradient(135deg,rgba(255,107,53,0.2),rgba(255,20,147,0.15));color:var(--accent);border:1px solid var(--cb)}
+.receipt-modal{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);display:none;align-items:flex-end;justify-content:center;padding:16px}.receipt-modal.show{display:flex}
+.receipt-container{width:100%;max-width:380px;max-height:85vh;overflow-y:auto;background:#fff;border-radius:16px 16px 4px 4px;color:#111;animation:slideup .35s ease}
+@keyframes slideup{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.receipt-inner{padding:20px 16px;font-family:'Courier New',monospace;font-size:12px}
+.receipt-inner .rlogo{width:70px;height:70px;margin:0 auto 8px;display:block;border-radius:8px;object-fit:cover}
+.receipt-inner .rcomp{text-align:center;font-size:14px;font-weight:700;margin-bottom:4px}
+.receipt-inner .rsub{text-align:center;font-size:10px;color:#666;margin-bottom:8px}
+.receipt-inner .rdiv{border:none;border-top:1px dashed #999;margin:8px 0}
+.receipt-inner .rrow{display:flex;justify-content:space-between;padding:2px 0;font-size:12px}.receipt-inner .rrow .rl{color:#555}.receipt-inner .rrow .rv{font-weight:700;text-align:right}
+.receipt-inner .rtrow{display:flex;justify-content:space-between;padding:4px 0;font-size:14px;font-weight:700;border-top:2px solid #111;margin-top:4px;padding-top:6px}
+.receipt-inner .rfoot{text-align:center;font-size:10px;color:#888;margin-top:10px}
+.receipt-actions{display:flex;gap:8px;padding:12px 16px;background:#f5f5f5;border-top:1px solid #ddd;border-radius:0 0 4px 4px}
+.ract-btn{flex:1;padding:12px;border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;display:flex;align-items:center;justify-content:center;gap:6px}.ract-btn:active{transform:scale(.96)}
+.ract-btn.pr-btn{background:linear-gradient(135deg,#4CAF50,#2E7D32);color:#fff}.ract-btn.cl-btn{background:#e0e0e0;color:#333}
+.report-filters{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.rfbtn{padding:8px 14px;border:1.5px solid var(--cb);border-radius:8px;background:var(--card);color:var(--text2);font-size:13px;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif}.rfbtn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.report-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px}
+.scard{background:var(--card);border:1px solid var(--cb);border-radius:12px;padding:14px;text-align:center}.scard .sval{font-size:22px;font-weight:800;color:var(--accent2)}.scard .slbl{font-size:11px;color:var(--text2);margin-top:2px}
+.rtable{width:100%;border-collapse:collapse;font-size:12px}.rtable th{text-align:left;padding:8px 6px;color:var(--accent);border-bottom:1px solid var(--cb);font-size:11px;text-transform:uppercase;letter-spacing:.5px}.rtable td{padding:8px 6px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--text2)}.rtable tr:hover td{color:var(--text)}
+.nodata{text-align:center;padding:40px 20px;color:var(--text3);font-size:14px}.nodata i{font-size:40px;display:block;margin-bottom:10px;color:var(--cb)}
+.toast-container{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;flex-direction:column;gap:8px;pointer-events:none;width:90%;max-width:400px}
+.toast{padding:12px 16px;border-radius:10px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;animation:tin .35s ease;pointer-events:auto;box-shadow:0 8px 30px rgba(0,0,0,0.3)}
+.toast.success{background:#1B5E20;color:#A5D6A7}.toast.error{background:#B71C1C;color:#EF9A9A}.toast.info{background:#0D47A1;color:#90CAF9}.toast.out{animation:tout .3s ease forwards}
+@keyframes tin{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}@keyframes tout{to{opacity:0;transform:translateY(-20px)}}
+.tag-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag-item{padding:6px 12px;border-radius:8px;font-size:12px;font-weight:500;background:rgba(255,107,53,0.12);color:var(--accent);border:1px solid rgba(255,107,53,0.25);display:flex;align-items:center;gap:6px}
+.tag-item .remove-tag{cursor:pointer;opacity:.6}.tag-item .remove-tag:hover{opacity:1}
+.add-row{display:flex;gap:6px;margin-top:8px}.add-row input{flex:1;padding:8px 12px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:var(--text);font-size:13px;font-family:'Poppins',sans-serif;outline:none}.add-row input:focus{border-color:var(--accent)}.add-row button{padding:8px 14px;border:none;border-radius:8px;background:var(--accent);color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif}
+.view-section{display:none}.view-section.active{display:block}
+.act-btns{display:flex;gap:4px;flex-wrap:wrap}
+.actb{padding:5px 8px;border:none;border-radius:6px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;display:flex;align-items:center;gap:3px;white-space:nowrap}.actb:active{transform:scale(.94)}
+.actb.aedit{background:rgba(33,150,243,0.2);color:#64B5F6;border:1px solid rgba(33,150,243,0.3)}
+.actb.adel{background:rgba(244,67,54,0.15);color:#EF5350;border:1px solid rgba(244,67,54,0.25)}
+.actb.areceipt{background:rgba(255,215,0,0.15);color:#FFD700;border:1px solid rgba(255,215,0,0.25)}
+.print-rpt-btn{padding:10px 18px;border:none;border-radius:10px;background:linear-gradient(135deg,#4CAF50,#2E7D32);color:#fff;font-size:13px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;display:flex;align-items:center;gap:6px;margin-bottom:14px;box-shadow:0 4px 15px rgba(76,175,80,0.3)}.print-rpt-btn:active{transform:scale(.96)}
+.edit-modal{position:fixed;inset:0;z-index:250;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:16px}.edit-modal.show{display:flex}
+.edit-box{background:linear-gradient(135deg,var(--bg2),var(--bg));border:1px solid var(--cb);border-radius:16px;padding:20px;width:100%;max-width:420px;max-height:85vh;overflow-y:auto;animation:mpop .3s ease}
+.edit-box h3{font-size:16px;font-weight:700;color:var(--accent2);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.erow{display:flex;gap:10px;margin-bottom:10px}.erow .egrp{flex:1}
+.egrp label{display:block;font-size:11px;font-weight:600;color:var(--text2);margin-bottom:4px}
+.egrp input,.egrp select{width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:var(--text);font-size:14px;font-family:'Poppins',sans-serif;outline:none;-webkit-appearance:none}.egrp input:focus,.egrp select:focus{border-color:var(--accent)}.egrp select{cursor:pointer}
+.eact{display:flex;gap:8px;margin-top:14px}.eact button{flex:1;padding:12px;border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif}.eact button:active{transform:scale(.96)}
+.eact .esave{background:linear-gradient(135deg,var(--accent),var(--accent3));color:#fff}.eact .ecnl{background:rgba(255,255,255,0.08);color:var(--text2);border:1px solid rgba(255,255,255,0.1)}
+.printer-status{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;margin-bottom:12px;font-size:13px;font-weight:600}
+.printer-status.connected{background:rgba(0,230,118,0.1);color:#A5D6A7;border:1px solid rgba(0,230,118,0.2)}
+.printer-status.disconnected{background:rgba(255,23,68,0.1);color:#EF9A9A;border:1px solid rgba(255,23,68,0.2)}
+.disco-item{padding:10px 12px;margin-bottom:8px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid var(--cb)}
+.disco-item .dname{font-weight:700;color:var(--accent2);font-size:14px}
+.disco-item .dprice{font-size:11px;color:var(--text3);margin-top:2px}
+.disco-item .dactions{display:flex;gap:4px}
+@media(min-width:768px){.content{max-width:560px}.title-text{font-size:28px}.price-btn{min-width:calc(25% - 6px)}}@media(max-width:360px){.price-btn{min-width:100%}.title-text{font-size:16px}}
+/* iPhone / iPad / AirPrint fallback: only print the prepared booking receipt. */
+.receipt-actions{flex-wrap:wrap}
+.receipt-actions .ract-btn{min-width:110px}
+#nativePrintDocument{display:none}
+@media print{
+  @page{margin:7mm}
+  html,body{background:#fff!important;color:#111!important;height:auto!important;overflow:visible!important}
+  body>*:not(#nativePrintDocument){display:none!important}
+  #nativePrintDocument{display:block!important;width:100%;max-width:80mm;margin:0 auto;font:12px/1.5 Arial,Helvetica,sans-serif;color:#111;background:#fff}
+  #nativePrintDocument .receipt-inner{padding:0!important;font:12px/1.5 Arial,Helvetica,sans-serif;color:#111}
+  #nativePrintDocument .rlogo{width:70px;height:70px;object-fit:contain}
+  #nativePrintDocument .rrow{display:flex!important;justify-content:space-between;gap:10px}
+  #nativePrintDocument .rrow .rv{overflow-wrap:anywhere}
+}
+
+/* XP-P502A Android Web Bluetooth controls */
+#testPrinterBtn{margin-top:8px;background:linear-gradient(135deg,#00796B,#004D40)!important}
+.printer-settings-note{font-size:12px;color:var(--text2);line-height:1.7;margin-top:10px}
+#printMode{margin-top:8px}
+#printProgress{font-size:12px;color:var(--accent2);line-height:1.6;margin-top:10px;min-height:19px;white-space:normal}
+#btPrintBtn:disabled,#testPrinterBtn:disabled,#connectPrinterBtn:disabled{opacity:.55;cursor:wait}
+
+/* October Android UI repair: center password card within the available viewport. */
+#passwordScreen{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px));
+  height:100vh;height:100dvh;overflow-y:auto;
+}
+.login-panel{
+  flex:none;display:flex;align-items:center;flex-direction:column;justify-content:center;
+  gap:12px;text-align:center;width:min(100%,340px);margin:auto;
+  padding:25px 20px 20px;border-radius:24px;
+  background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 15px 45px rgba(0,0,0,.24)
+}
+#passwordScreen .login-logo{width:106px;height:106px;object-fit:contain;border-radius:20px;background:white;padding:6px}
+#passwordScreen .login-panel h2{font:normal 21px 'Righteous',cursive;line-height:1.25;color:var(--accent);margin:0}
+#passwordScreen .login-panel p{font-size:11px;letter-spacing:2px;color:var(--text2);margin:-4px 0 4px}
+#passwordScreen .login-panel .lock-icon{font-size:26px;line-height:1;margin:0;color:var(--accent)}
+.login-password-label{font-size:12px;font-weight:600;color:var(--text2);margin-bottom:-4px}
+#passwordScreen .pw-input,#passwordScreen .pw-btn{width:100%;max-width:282px;min-height:48px}
+#passwordScreen .pw-error{min-height:18px;text-align:center}
+@media (max-height:600px){.login-panel{padding:15px 16px;gap:7px}#passwordScreen .login-logo{width:70px;height:70px}}
+/* Receipt is a fixed, viewport-fitted dialog. Header and print controls never scroll away. */
+.receipt-modal{z-index:1500;align-items:center;justify-content:center;padding:8px;padding-top:calc(8px + env(safe-area-inset-top,0px));padding-bottom:calc(8px + env(safe-area-inset-bottom,0px))}
+.receipt-modal.show{display:flex;visibility:visible}
+.receipt-container{
+  display:flex;flex-direction:column;overflow:hidden;
+  width:100%;max-width:430px;height:auto;min-height:0;
+  max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);
+  background:white;color:#111;border-radius:16px;box-shadow:0 12px 65px rgba(0,0,0,.6);
+  animation:receiptPop .22s ease-out
+}
+@keyframes receiptPop{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.receipt-topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex:none;padding:13px 14px;background:#0F5132;color:#fff}
+.receipt-topbar-text{font-size:14px;font-weight:800;letter-spacing:.15px}
+.receipt-topbar-text i{color:#B9F6CA;margin-right:5px}
+.receipt-top-close{width:34px;height:34px;border:0;border-radius:8px;background:rgba(255,255,255,.16);color:white;font-size:15px;cursor:pointer}
+#receiptModal .receipt-inner{min-height:0;overflow:auto;flex:1 1 auto;padding:18px 16px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+#receiptModal .receipt-actions{display:block;flex:none;padding:10px;background:#f2f4f7;border-top:1px solid #d1d5db;border-radius:0}
+.receipt-primary-buttons{display:flex;gap:8px;align-items:stretch}
+.receipt-primary-buttons #btPrintBtn{flex:1 1 auto;min-width:0;font-size:13px;padding:12px 8px;white-space:normal;line-height:1.25}
+.receipt-primary-buttons #closeReceiptBtn{flex:0 0 94px;min-width:0;padding:10px 5px}
+.receipt-more-print{margin-top:6px;font-size:11px;color:#555}
+.receipt-more-print summary{cursor:pointer;text-align:center;padding:3px 0;font-weight:600}
+.receipt-secondary-buttons{display:flex;gap:6px;margin-top:6px}
+.receipt-secondary-buttons .ract-btn{flex:1;min-width:0;font-size:11px;padding:9px 6px;line-height:1.3}
+body.receipt-open{overflow:hidden}
+.booking-saved-panel{margin:13px 0 6px;padding:14px;border-radius:12px;border:1px solid rgba(0,230,118,.35);background:rgba(0,230,118,.08)}
+.booking-saved-panel[hidden]{display:none!important}
+.booking-saved-heading{color:#9ff6bf;font-size:14px;font-weight:800;display:flex;gap:8px;align-items:center}
+.booking-saved-meta{font-size:12px;margin-top:7px;color:var(--text2);overflow-wrap:anywhere}
+.booking-reopen-btn{background:linear-gradient(135deg,#087F5B,#2E7D32);font-size:13px;margin-top:12px;padding:13px}
+.receipt-choice-help{font:11px/1.35 'Poppins',Arial,sans-serif;color:#555;text-align:center;margin:7px 4px 0}
+#receiptModal .receipt-primary-buttons #btPrintBtn{background:#11783C;color:#fff;min-height:50px;font-weight:800;font-size:15px}
+#receiptModal .receipt-primary-buttons #closeReceiptBtn{background:#E2E2E2;color:#333;font-weight:800;font-size:13px}
+#receiptModal .receipt-primary-buttons button:disabled,#closeReceiptTopBtn:disabled{opacity:.58;cursor:wait}
+/* Reliable Android booking recovery: real independent actions after Firebase save. */
+.build-version{margin:8px 0;text-align:center;color:var(--text3);font-size:10px;letter-spacing:.4px}
+.booking-direct-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.booking-direct-actions .book-btn{flex:1;min-width:150px;margin:0;font-size:13px;line-height:1.3;padding:13px 8px}
+.booking-direct-actions .saved-print-btn{background:linear-gradient(135deg,#159447,#087d4d);color:#fff}
+.booking-direct-actions .saved-cancel-btn{background:#454553;color:white;box-shadow:none}
+.booking-direct-help{font-size:11px;line-height:1.5;color:var(--text2);margin:10px 0 0}
+#receiptModal.show{display:flex!important;position:fixed!important;inset:0!important;z-index:20010!important;visibility:visible!important;opacity:1!important}
+#receiptModal .receipt-container{position:relative;z-index:1}
+
+/* R-20261010-06: Responsive layout from narrow phones to desktop; readable touch targets */
+html{font-size:16px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{min-width:0;line-height:1.5}
+#mainApp{min-width:0;min-height:100svh;padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+.content{width:100%;max-width:760px;margin-inline:auto;padding:clamp(12px,3vw,26px)}
+.form-card{width:100%;min-width:0;padding:clamp(14px,3.5vw,22px)}
+.form-row{min-width:0;flex-wrap:wrap;gap:10px}
+.form-row .form-group,.erow .egrp{min-width:0;flex:1 1 145px}
+.form-label{font-size:14px;color:rgba(255,255,255,.85);line-height:1.35}
+.form-card-title{font-size:clamp(14px,2.2vw,16px);letter-spacing:.7px;line-height:1.4}
+.form-input,.form-select,.egrp input,.egrp select{font-size:16px;line-height:1.4;min-height:50px;min-width:0;max-width:100%;padding:12px}
+.pw-input,.pw-btn{font-size:17px}
+.price-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.price-btn{min-width:0;width:100%;padding:12px 7px;font-size:16px;line-height:1.35;overflow-wrap:anywhere}
+.price-btn .cval{font-size:20px}
+.calc-display{min-width:0;padding:12px}
+.calc-row{gap:12px;font-size:15px;min-width:0}
+.calc-row .clbl{min-width:0;flex:1 1 50%;overflow-wrap:anywhere}
+.calc-row .cval{min-width:0;max-width:55%;text-align:right;overflow-wrap:anywhere}
+.calc-row.tot{font-size:19px}
+.hotel-banner{min-width:0;gap:10px;padding:13px}
+.hotel-banner>div{min-width:0}
+.hotel-banner .hn{font-size:clamp(15px,3vw,19px);overflow-wrap:anywhere}
+.app-header{padding:calc(10px + env(safe-area-inset-top,0px)) clamp(12px,3vw,22px) 9px}
+.header-top{flex-wrap:wrap;justify-content:space-between}
+.title-wrap{padding:5px 0 7px;min-height:0}
+.title-text{font-size:clamp(18px,3.8vw,28px);line-height:1.22;overflow-wrap:anywhere}
+.lbtn{font-size:13px;min-height:42px;padding:8px 11px}
+#settingsBtn{min-width:44px;min-height:44px}
+.book-btn,.ract-btn,.nav-btn,.rfbtn{min-height:48px}
+.book-btn{font-size:clamp(15px,2.5vw,18px);line-height:1.3}
+.booking-saved-heading{font-size:16px;line-height:1.4}
+.booking-saved-meta,.booking-direct-help{font-size:13px;line-height:1.5}
+.booking-direct-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.booking-direct-actions .book-btn{min-width:0;font-size:14px;padding:12px 7px;overflow-wrap:anywhere}
+.bottom-nav{padding:8px max(10px,env(safe-area-inset-left,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-right,0px));gap:8px}
+.nav-btn{font-size:12px;line-height:1.35;gap:4px;min-width:0;white-space:normal}
+.nav-btn i{font-size:21px}
+.report-summary{grid-template-columns:repeat(auto-fit,minmax(125px,1fr))}
+#reportContent,#manageList{max-width:100%;min-width:0}
+#manageList{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.rtable{min-width:665px;font-size:13px}
+.rtable th,.rtable td{font-size:12px;white-space:normal;overflow-wrap:anywhere;padding:9px 8px}
+.report-filters{gap:8px}
+.rfbtn{font-size:14px}
+.receipt-modal{padding:clamp(5px,1.6vw,12px)!important}
+.receipt-container{width:min(100%,470px)!important;max-height:calc(100dvh - 18px)!important}
+#receiptModal .receipt-inner{padding:17px 16px;font-size:15px;line-height:1.45}
+#receiptModal .receipt-inner .rrow{font-size:15px;gap:14px;padding:6px 0;align-items:flex-start;line-height:1.35}
+#receiptModal .receipt-inner .rrow .rl{flex:0 0 38%;min-width:0}
+#receiptModal .receipt-inner .rrow .rv{flex:1;min-width:0;overflow-wrap:anywhere;text-align:right}
+#receiptModal .receipt-inner .rcomp{font-size:18px;line-height:1.3}
+#receiptModal .receipt-inner .rsub{font-size:13px}
+#receiptModal .receipt-inner .rtrow{font-size:20px;gap:12px}
+#receiptModal .receipt-inner .rfoot{font-size:12px}
+.receipt-topbar-text{font-size:clamp(13px,3vw,16px);overflow-wrap:anywhere}
+#receiptModal .receipt-primary-buttons #btPrintBtn{font-size:17px;min-height:52px}
+#receiptModal .receipt-primary-buttons #closeReceiptBtn{font-size:15px;min-height:52px;flex:0 0 92px}
+.receipt-choice-help{font-size:12px;line-height:1.4}
+.receipt-secondary-buttons{flex-wrap:wrap}
+.receipt-secondary-buttons .ract-btn{flex:1 1 120px;font-size:12px}
+@media (min-width:900px){.content{max-width:900px}.form-card{padding:24px}.price-options{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:390px){
+ .content{padding:10px}
+ .form-row .form-group{flex:1 1 100%}
+ .form-card{padding:14px}
+ .header-top{gap:6px}
+ .logo-area{width:44px;height:44px}
+ .lbtn{padding:8px 9px}
+ .title-text{font-size:clamp(16px,4.5vw,20px)}
+ .booking-direct-actions{grid-template-columns:1fr}
+ .receipt-primary-buttons{gap:6px}
+ #receiptModal .receipt-primary-buttons #closeReceiptBtn{flex:0 0 84px}
+}
+@media (max-width:305px){.price-options{grid-template-columns:1fr}.lang-sel{gap:0}.lbtn{padding:7px 6px}.nav-btn{font-size:11px}}
+@media (max-height:520px) and (orientation:landscape){
+ #passwordScreen{padding-block:8px;overflow:auto}
+ .login-panel{padding:12px;gap:6px}
+ #passwordScreen .login-logo{width:54px;height:54px}
+ #receiptModal .receipt-inner{padding:9px 12px}
+}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+@media print{
+ @page{size:58mm auto;margin:2mm}
+ #nativePrintDocument{max-width:54mm!important;width:54mm!important;margin:auto!important;font:16px/1.45 Arial,Helvetica,sans-serif!important}
+ #nativePrintDocument .receipt-inner{font:16px/1.45 Arial,Helvetica,sans-serif!important}
+ #nativePrintDocument .rrow{font-size:16px!important;gap:6px;align-items:flex-start}
+ #nativePrintDocument .rrow .rl{flex:0 0 38%;max-width:38%;overflow-wrap:anywhere}
+ #nativePrintDocument .rrow .rv{flex:1;min-width:0;font-weight:700;overflow-wrap:anywhere}
+ #nativePrintDocument .rcomp{font-size:19px!important;font-weight:900}
+ #nativePrintDocument .rtrow{font-size:20px!important}
+}
+
+
+/* R-20261011-07 | Tablet portrait & landscape: keep the working phone layout unchanged. */
+@media screen and (min-width:600px) {
+  /* Centered login: a balanced, comfortably sized card on tablets. */
+  #passwordScreen {
+    display:grid;place-items:center;grid-template-columns:minmax(0,1fr);
+    box-sizing:border-box;
+    height:100vh;height:100dvh;
+    overflow-x:hidden;overflow-y:auto;
+    padding:clamp(18px,4vh,48px) clamp(18px,5vw,56px);
+  }
+  #passwordScreen .login-panel {
+    box-sizing:border-box;
+    width:min(100%,520px);max-width:520px;
+    margin:auto;min-width:0;
+    padding:clamp(25px,4vh,43px) clamp(28px,5vw,46px);
+    gap:15px;
+    border-radius:28px;
+    background:linear-gradient(140deg,rgba(255,255,255,.085),rgba(255,255,255,.035));
+    border:1px solid rgba(255,255,255,.18);
+    box-shadow:0 24px 70px rgba(0,0,0,.36);
+  }
+  #passwordScreen .login-logo {width:132px;height:132px;padding:8px;border-radius:25px;}
+  #passwordScreen .login-panel .lock-icon {font-size:28px;}
+  #passwordScreen .login-panel h2 {font-size:28px;line-height:1.25;}
+  #passwordScreen .login-panel p {font-size:13px;letter-spacing:2.5px;}
+  #passwordScreen .login-password-label {font-size:15px;align-self:stretch;text-align:left;margin:0;}
+  #passwordScreen .pw-input,#passwordScreen .pw-btn {
+    box-sizing:border-box;width:100%;max-width:none;min-height:56px;
+    font-size:19px;border-radius:13px;
+  }
+  #passwordScreen .pw-error {font-size:14px;min-height:20px;}
+
+  /* Widen the receipt dialog. Only the receipt body scrolls; actions stay in view. */
+  #receiptModal {box-sizing:border-box;padding:clamp(18px,4vmin,44px)!important;}
+  #receiptModal .receipt-container {
+    box-sizing:border-box;
+    width:min(100%,690px)!important;max-width:690px!important;
+    height:auto;max-height:calc(100vh - 54px)!important;
+    max-height:calc(100dvh - 54px)!important;
+    min-height:0;overflow:hidden;
+    border-radius:22px;
+    display:flex;flex-direction:column;
+    box-shadow:0 30px 90px rgba(0,0,0,.58);
+  }
+  #receiptModal .receipt-topbar {min-height:66px;flex:0 0 auto;padding:14px 22px;gap:14px;}
+  #receiptModal .receipt-topbar-text {font-size:19px;line-height:1.25;}
+  #receiptModal .receipt-top-close {width:46px;height:46px;flex:0 0 46px;font-size:19px;}
+  #receiptModal .receipt-inner {
+    box-sizing:border-box;flex:1 1 auto;min-height:0;
+    overflow:auto;overscroll-behavior:contain;
+    padding:25px clamp(36px,8%,72px);
+    font-size:17px;line-height:1.45;
+  }
+  #receiptModal .receipt-inner .rlogo {width:94px;height:94px;margin-bottom:12px;}
+  #receiptModal .receipt-inner .rcomp {font-size:21px;}
+  #receiptModal .receipt-inner .rsub {font-size:15px;}
+  #receiptModal .receipt-inner .rrow {font-size:17px;padding:8px 0;line-height:1.35;gap:15px;}
+  #receiptModal .receipt-inner .rtrow {font-size:23px;}
+  #receiptModal .receipt-inner .rfoot {font-size:13px;}
+  #receiptModal .receipt-actions {
+    box-sizing:border-box;flex:0 0 auto;
+    padding:15px 20px 17px;
+    background:#f3f5f7;border-radius:0;
+  }
+  #receiptModal .receipt-primary-buttons {gap:12px;}
+  #receiptModal .receipt-primary-buttons #btPrintBtn {min-height:58px;font-size:20px;padding:12px 14px;}
+  #receiptModal .receipt-primary-buttons #closeReceiptBtn {min-height:58px;flex:0 0 32%;font-size:18px;padding:12px;}
+  #receiptModal .receipt-choice-help {font-size:13px;line-height:1.45;margin:9px 8px 0;}
+  #receiptModal .receipt-more-print {font-size:13px;margin-top:8px;}
+  #receiptModal .receipt-more-print summary {min-height:28px;padding:6px;}
+  #receiptModal .receipt-secondary-buttons .ract-btn {font-size:14px;min-height:48px;}
+
+  /* Also enlarge administrator/edit dialogs on tablet screens. */
+  #adminModal,#editModal,#discoEditModal {padding:clamp(16px,3vw,42px);}
+  #adminModal .mbox {
+    box-sizing:border-box;width:min(100%,500px);max-width:500px;
+    padding:clamp(26px,4vw,38px);border-radius:22px;
+  }
+  #adminModal .mbox h3 {font-size:21px;}
+  #adminModal .mbox p {font-size:15px;}
+  #adminModal .mpw-input {font-size:19px;min-height:54px;}
+  #adminModal .mact button {min-height:54px;font-size:16px;}
+  .edit-modal .edit-box {
+    box-sizing:border-box;width:min(100%,710px);max-width:710px;
+    max-height:calc(100dvh - 72px);padding:clamp(23px,3vw,32px);
+    border-radius:22px;
+  }
+  .edit-modal .edit-box h3 {font-size:21px;}
+  .edit-modal .edit-box .egrp label {font-size:14px;}
+  .edit-modal .edit-box .egrp input,.edit-modal .edit-box .egrp select {font-size:16px;min-height:50px;}
+  .edit-modal .edit-box .eact button {min-height:54px;font-size:16px;}
+}
+/* Short tablet landscape (and on-screen keyboard): allow vertical scrolling rather than clipping. */
+@media screen and (min-width:600px) and (max-height:690px) {
+  #passwordScreen {padding:12px 18px;overflow-y:auto;}
+  #passwordScreen .login-panel {padding:14px 28px;gap:8px;max-width:500px;}
+  #passwordScreen .login-logo {width:72px;height:72px;padding:5px;border-radius:14px;}
+  #passwordScreen .login-panel .lock-icon {font-size:19px;}
+  #passwordScreen .login-panel h2 {font-size:23px;}
+  #passwordScreen .login-panel p {font-size:11px;}
+  #passwordScreen .login-password-label {font-size:13px;}
+  #passwordScreen .pw-input,#passwordScreen .pw-btn {min-height:45px;font-size:16px;}
+  #passwordScreen .pw-error {min-height:15px;}
+  #receiptModal {padding:9px!important;}
+  #receiptModal .receipt-container {
+    max-height:calc(100vh - 18px)!important;
+    max-height:calc(100dvh - 18px)!important;
+  }
+  #receiptModal .receipt-topbar {min-height:50px;padding:6px 14px;}
+  #receiptModal .receipt-topbar-text {font-size:17px;}
+  #receiptModal .receipt-top-close {width:40px;height:40px;flex-basis:40px;}
+  #receiptModal .receipt-inner {padding:13px clamp(24px,7%,52px);}
+  #receiptModal .receipt-actions {padding:8px 14px;}
+  #receiptModal .receipt-primary-buttons #btPrintBtn,
+  #receiptModal .receipt-primary-buttons #closeReceiptBtn {min-height:46px;font-size:16px;}
+  #receiptModal .receipt-choice-help {font-size:12px;margin-top:4px;}
+  #receiptModal .receipt-more-print {margin-top:3px;}
+  .edit-modal .edit-box {max-height:calc(100dvh - 22px);}
+}
+/* Tiny desktop windows do not receive the tablet scale-up. */
+@media screen and (max-width:599px){/* Existing tested Android-phone sizing is unchanged. */}
+
+
+/* --------------------------------------------------------------------
+   R-20261012-11 — Compact text-only BLE; responsive universal tablet layout
+   Responsive to CSS viewport size, not device brand or physical pixels.
+   PRINT data generator, ESC/POS Bluetooth, login and Firebase unchanged.
+   -------------------------------------------------------------------- */
+@media screen and (min-width:600px) {
+  body { min-width:0; }
+  #mainApp { padding-bottom:calc(110px + env(safe-area-inset-bottom,0px)); }
+  .content {
+    width:100%;max-width:1200px;
+    padding:clamp(16px,2.3vw,32px);
+    margin-inline:auto;
+  }
+  .app-header .header-top,.app-header .title-wrap {max-width:1160px;margin-left:auto;margin-right:auto;}
+  .form-card{min-width:0;}
+  .form-card-title{font-size:clamp(15px,1.6vw,19px);}
+  .form-label{font-size:clamp(14px,1.4vw,16px);}
+  .form-input,.form-select,.egrp input,.egrp select{min-height:54px;font-size:clamp(16px,1.4vw,18px);}
+  .form-row .form-group {flex:1 1 180px;min-width:0;}
+  .price-btn {min-height:66px;}
+  .hotel-banner .hn{font-size:clamp(18px,2vw,22px);}
+  .bottom-nav {
+    padding-left:max(14px,calc((100vw - 900px)/2));
+    padding-right:max(14px,calc((100vw - 900px)/2));
+    gap:12px;
+  }
+  .nav-btn {min-height:62px;font-size:clamp(13px,1.2vw,16px);}
+  .nav-btn i{font-size:clamp(21px,2vw,25px);}
+  #passwordScreen {
+    display:flex;justify-content:center;align-items:center;
+    box-sizing:border-box;overflow-x:hidden;overflow-y:auto;
+    height:100vh;height:100dvh;
+    padding:clamp(14px,3vh,38px) clamp(18px,4vw,48px);
+  }
+  #passwordScreen .login-panel {
+    flex:0 1 auto;
+    width:min(100%,clamp(390px,49vw,540px));max-width:540px;
+    margin:auto;
+    padding:clamp(22px,3vh,40px) clamp(25px,3vw,42px);
+    gap:clamp(9px,1.5vh,15px);
+  }
+  #passwordScreen .pw-input,#passwordScreen .pw-btn {width:100%;max-width:none;}
+  #receiptModal {padding:clamp(12px,2.5vmin,30px)!important;}
+  #receiptModal .receipt-container {
+    box-sizing:border-box;width:min(100%,760px)!important;max-width:760px!important;
+    max-height:calc(100vh - 24px)!important;
+    max-height:calc(100dvh - 24px)!important;
+    overflow:hidden;min-height:0;display:flex;flex-direction:column;
+  }
+  #receiptModal .receipt-inner {
+    flex:1 1 auto;min-height:0;overflow-x:hidden;overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    padding:clamp(17px,2.4vw,30px) clamp(22px,6vw,68px);
+  }
+  #receiptModal .receipt-actions {
+    flex:0 0 auto;min-height:0;
+    overflow-x:hidden;overflow-y:auto;
+    max-height:min(42dvh,235px);
+    padding:clamp(9px,1.4vh,15px) clamp(12px,2vw,22px);
+  }
+  #receiptModal .receipt-primary-buttons #btPrintBtn,
+  #receiptModal .receipt-primary-buttons #closeReceiptBtn {white-space:normal;overflow-wrap:anywhere;}
+  #receiptModal .receipt-topbar{flex:0 0 auto;}
+  #adminModal,.edit-modal{
+    box-sizing:border-box;overflow-y:auto;
+    padding:clamp(10px,2.5vmin,28px);
+    max-height:100vh;max-height:100dvh;
+  }
+  #adminModal .mbox,.edit-modal .edit-box{max-height:calc(100dvh - 22px);overflow-y:auto;margin:auto;}
+  #reportContent,#manageList {min-width:0;max-width:100%;}
+  #reportContent > .form-card {overflow-x:auto;-webkit-overflow-scrolling:touch;}
+}
+/* Tablets in landscape (and larger tablets in portrait) make use of the width. */
+@media screen and (min-width:920px) {
+  #bookingView.view-section.active {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:clamp(13px,1.7vw,22px);
+    align-items:start;
+  }
+  #bookingView > .hotel-banner,
+  #bookingView > .payment-card,
+  #bookingView > #bookBtn,
+  #bookingView > .build-version,
+  #bookingView > .booking-saved-panel {grid-column:1/-1;min-width:0;margin:0;}
+  #bookingView > .form-card {margin-bottom:0;}
+  #bookingView > #bookBtn {width:min(100%,680px);justify-self:center;min-height:60px;margin-top:4px;}
+  #bookingView > .build-version {margin-top:-8px;}
+  #bookingView > .booking-saved-panel {width:100%;}
+  .price-options{grid-template-columns:repeat(4,minmax(0,1fr));}
+}
+/* Mid-sized portrait tablets and foldables: comfortable single-column flow. */
+@media screen and (min-width:600px) and (max-width:919px) {
+  .content{max-width:780px;}
+  .form-card{padding:clamp(18px,3vw,26px);}
+  .price-options{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+/* Landscape tablets with shallow viewports, including when the keyboard opens. */
+@media screen and (min-width:600px) and (max-height:610px) {
+  #passwordScreen{padding:8px 18px;overflow-y:auto;}
+  #passwordScreen .login-panel{width:min(100%,480px);padding:12px 22px;gap:6px;}
+  #passwordScreen .login-logo{width:62px;height:62px;padding:5px;border-radius:13px;}
+  #passwordScreen .login-panel h2{font-size:20px;}
+  #passwordScreen .login-panel p{font-size:11px;}
+  #passwordScreen .login-panel .lock-icon{font-size:18px;}
+  #passwordScreen .login-password-label{font-size:12px;}
+  #passwordScreen .pw-input,#passwordScreen .pw-btn{min-height:43px;font-size:16px;}
+  #receiptModal {padding:7px!important;}
+  #receiptModal .receipt-container{max-height:calc(100dvh - 14px)!important;}
+  #receiptModal .receipt-topbar{min-height:44px;padding:5px 14px;}
+  #receiptModal .receipt-top-close{width:36px;height:36px;flex-basis:36px;}
+  #receiptModal .receipt-inner{padding:12px clamp(18px,4vw,40px);}
+  #receiptModal .receipt-actions{padding:5px 10px;max-height:min(47dvh,150px);}
+  #receiptModal .receipt-primary-buttons #btPrintBtn,
+  #receiptModal .receipt-primary-buttons #closeReceiptBtn{min-height:42px;font-size:15px;}
+  #receiptModal .receipt-choice-help{font-size:11px;margin:3px 0;}
+  #receiptModal .receipt-more-print{font-size:11px;margin-top:3px;}
+}
+/* Very short landscape windows: preserve controls and allow scroll. */
+@media screen and (min-width:600px) and (max-height:400px) {
+  #passwordScreen .login-logo{width:42px;height:42px;}
+  #passwordScreen .login-panel {gap:4px;padding:8px 16px;}
+  #passwordScreen .login-panel .lock-icon{display:none;}
+  #passwordScreen .login-panel h2{font-size:17px;}
+  #passwordScreen .login-panel p{font-size:10px;margin:0;}
+  #passwordScreen .pw-input,#passwordScreen .pw-btn{min-height:36px;}
+  #receiptModal .receipt-actions{max-height:50dvh;}
+}
+
+
+/* Example 3 - Boxed receipt layout */
+#receiptModal .receipt-inner.boxed-layout{font-family:'Courier New',monospace;color:#111}
+#receiptModal .receipt-inner.boxed-layout .rcomp{font-size:20px;font-weight:900;text-align:center;letter-spacing:.3px;margin:0 0 6px}
+#receiptModal .receipt-inner.boxed-layout .receipt-subtitle{font-size:17px;font-weight:800;text-align:center;border:2px solid #111;padding:6px 8px;margin:0 0 12px;background:#f6f6f6}
+#receiptModal .receipt-inner.boxed-layout .receipt-box{border:1.6px solid #111;padding:10px 12px;margin:0 0 10px;background:#fff}
+#receiptModal .receipt-inner.boxed-layout .receipt-box.pax-box{display:flex;align-items:center;justify-content:space-between}
+#receiptModal .receipt-inner.boxed-layout .receipt-box.total-box{border-width:2px}
+#receiptModal .receipt-inner.boxed-layout .rrow{display:flex;justify-content:space-between;gap:12px;padding:5px 0;font-size:15px;line-height:1.35;align-items:flex-start}
+#receiptModal .receipt-inner.boxed-layout .rrow .rl{flex:0 0 42%;color:#222}
+#receiptModal .receipt-inner.boxed-layout .rrow .rv{flex:1;text-align:right;font-weight:700;overflow-wrap:anywhere}
+#receiptModal .receipt-inner.boxed-layout .pax-label{font-size:19px;font-weight:900;letter-spacing:.3px}
+#receiptModal .receipt-inner.boxed-layout .pax-value{font-size:34px;font-weight:900;line-height:1}
+#receiptModal .receipt-inner.boxed-layout .total-main{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;font-size:19px;font-weight:900;padding-bottom:6px;margin-bottom:6px;border-bottom:1.5px solid #111}
+#receiptModal .receipt-inner.boxed-layout .total-main .total-value{font-size:22px}
+#receiptModal .receipt-inner.boxed-layout .rfoot{margin-top:10px;text-align:center;font-size:12px;color:#333}
+@media (max-width:480px){
+  #receiptModal .receipt-inner.boxed-layout .rcomp{font-size:18px}
+  #receiptModal .receipt-inner.boxed-layout .receipt-subtitle{font-size:15px}
+  #receiptModal .receipt-inner.boxed-layout .receipt-box{padding:9px 10px}
+  #receiptModal .receipt-inner.boxed-layout .rrow{font-size:14px;gap:10px}
+  #receiptModal .receipt-inner.boxed-layout .pax-label{font-size:17px}
+  #receiptModal .receipt-inner.boxed-layout .pax-value{font-size:30px}
+  #receiptModal .receipt-inner.boxed-layout .total-main{font-size:17px}
+  #receiptModal .receipt-inner.boxed-layout .total-main .total-value{font-size:20px}
+}
+
+
+/* EXAMPLE 2 RECEIPT ONLY: no boxes, PAX and TOTAL emphasized. */
+#receiptModal .receipt-inner.example2-layout{font-family:'Courier New',monospace;color:#111}
+#receiptModal .receipt-inner.example2-layout .rcomp{font-size:19px;font-weight:900;text-align:center;letter-spacing:.2px;margin:0 0 5px}
+#receiptModal .receipt-inner.example2-layout .receipt-subtitle{font-size:16px;font-weight:800;text-align:center;margin:8px 0}
+#receiptModal .receipt-inner.example2-layout .dash{border-top:1.5px dashed #111;margin:9px 0}
+#receiptModal .receipt-inner.example2-layout .rrow{display:flex;justify-content:space-between;gap:9px;padding:4px 0;font-size:14px;line-height:1.35;align-items:flex-start}
+#receiptModal .receipt-inner.example2-layout .rrow .rl{flex:0 0 39%;color:#222}
+#receiptModal .receipt-inner.example2-layout .rrow .rv{flex:1;font-weight:700;text-align:right;overflow-wrap:anywhere}
+#receiptModal .receipt-inner.example2-layout .pax-band{display:flex;justify-content:space-between;align-items:flex-end;gap:6px;padding:9px 0}
+#receiptModal .receipt-inner.example2-layout .pax-band .label{font-size:19px;font-weight:900}
+#receiptModal .receipt-inner.example2-layout .pax-band .value{font-size:38px;font-weight:900;line-height:1}
+#receiptModal .receipt-inner.example2-layout .total-band{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:7px 0 6px}
+#receiptModal .receipt-inner.example2-layout .total-band .label{font-size:16px;font-weight:900}
+#receiptModal .receipt-inner.example2-layout .total-band .value{font-size:21px;font-weight:900;text-align:right;overflow-wrap:anywhere}
+#receiptModal .receipt-inner.example2-layout .rfoot{text-align:center;color:#333;font-size:12px;margin-top:11px}
+
+
+/* New booking receipt + confirmation ticket preview */
+#receiptModal .receipt-inner.preview-docs{font-family:Arial,Helvetica,sans-serif;color:#111;background:#fff;padding:0}
+.preview-stack{display:flex;flex-direction:column;gap:18px}
+.preview-sheet{background:#fff;color:#111;border:1px solid #ddd;border-radius:14px;padding:20px 18px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.preview-logo{display:block;width:150px;max-width:62%;margin:0 auto 8px;object-fit:contain}
+.preview-company{font-size:26px;line-height:1.08;font-weight:900;text-align:center;margin:0}
+.preview-company small{display:block;font-size:.78em;margin-top:6px}
+.preview-doc-title{font-size:28px;line-height:1.08;font-weight:900;text-align:center;margin:12px 0 14px}
+.preview-line{height:2px;background:#111;margin:10px 0 14px}
+.preview-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin:7px 0;font-size:17px;line-height:1.3}
+.preview-row .lbl{font-weight:900;text-transform:uppercase;min-width:96px}
+.preview-row .val{font-weight:500;text-align:right;flex:1}
+.preview-row .val.bold{font-weight:900}
+.preview-guest-value{font-size:19px;font-weight:900;line-height:1.2;margin-top:2px}
+.preview-sect-gap{margin-top:14px}
+.preview-pax-area{text-align:center;padding:6px 0 4px}
+.preview-pax-label{font-size:26px;font-weight:900;line-height:1}
+.preview-pax-value{font-size:82px;font-weight:900;line-height:.95;margin-top:10px}
+.preview-total-label{text-align:center;font-size:24px;font-weight:900;margin:8px 0 4px}
+.preview-total-value{text-align:center;font-size:34px;font-weight:900;margin:0 0 10px}
+.preview-foot-note{text-align:center;font-size:18px;font-weight:900;margin:12px 0}
+.preview-policy-title{text-align:center;font-size:18px;font-weight:900;margin:8px 0 10px}
+.preview-policy-list{margin:0;padding-left:24px;font-size:14px;line-height:1.45}
+.preview-policy-list li{margin:5px 0}
+.preview-thanks{text-align:center;font-size:18px;font-weight:900;margin-top:10px}
+.ticket-qr-wrap{text-align:center;margin:18px 0 6px}
+.ticket-qr-wrap img{display:block;width:min(100%,280px);height:92px;margin:0 auto;object-fit:contain;image-rendering:pixelated}
+.ticket-qr-caption{text-align:center;font-size:14px;font-weight:800;margin:8px 0 0}
+@media (max-width:520px){
+  .preview-sheet{padding:16px 14px}
+  .preview-logo{width:132px}
+  .preview-company{font-size:20px}
+  .preview-doc-title{font-size:22px}
+  .preview-row{font-size:15px;gap:10px}
+  .preview-row .lbl{min-width:82px}
+  .preview-guest-value{font-size:17px}
+  .preview-pax-label{font-size:22px}
+  .preview-pax-value{font-size:68px}
+  .preview-total-label{font-size:20px}
+  .preview-total-value{font-size:30px}
+  .preview-foot-note{font-size:16px}
+  .preview-policy-title{font-size:16px}
+  .preview-policy-list{font-size:13px;padding-left:20px}
+  .ticket-qr-wrap img{width:100%;height:82px}
+}
+
+</style>
+</head>
+<body>
+<div class="toast-container" id="toastContainer"></div>
+<div id="passwordScreen">
+  <div class="login-panel">
+    <img src="five-stars-app-icon-v2.png" width="106" height="106" alt="Five Stars Animation Logo" class="login-logo">
+    <i class="fa-solid fa-lock lock-icon" aria-hidden="true"></i>
+    <h2>FIVE STARS SO FUN</h2>
+    <p>BOOKING SYSTEM</p>
+    <label for="pwInput" class="login-password-label">Enter your password</label>
+    <input type="password" class="pw-input" id="pwInput" maxlength="20" placeholder="•••••" autocomplete="current-password">
+    <button class="pw-btn" id="pwBtn"><i class="fa-solid fa-right-to-bracket"></i>&nbsp; Enter</button>
+    <div class="pw-error" id="pwError" role="alert"></div>
+  </div>
+</div>
+<div class="modal-bg" id="adminModal"><div class="mbox"><div class="micon"><i class="fa-solid fa-shield-halved"></i></div><h3 id="adminTitle">Admin Access</h3><p id="adminDesc">Enter admin password</p><input type="password" class="mpw-input" id="adminPwInput" maxlength="20" placeholder="•••••"><div class="mpw-error" id="adminPwError"></div><div class="mact"><button class="mcnl" id="adminCancelBtn"><i class="fa-solid fa-xmark"></i>&nbsp; Cancel</button><button class="mcfm" id="adminConfirmBtn"><i class="fa-solid fa-check"></i>&nbsp; Confirm</button></div></div></div>
+<div class="edit-modal" id="editModal"><div class="edit-box"><h3><i class="fa-solid fa-pen-to-square"></i> Edit Booking</h3><input type="hidden" id="editId"><div class="erow"><div class="egrp"><label>Guest Name</label><input type="text" id="editGuest"></div></div><div class="erow"><div class="egrp"><label>Room</label><input type="text" id="editRoom"></div><div class="egrp"><label>Pax</label><input type="number" id="editPax" min="1"></div></div><div class="erow"><div class="egrp"><label>Disco</label><select id="editDisco"></select></div></div><div class="erow"><div class="egrp"><label>Price</label><select id="editPrice"></select></div></div><div class="erow"><div class="egrp"><label>Discount</label><input type="number" id="editDisc" min="0"></div><div class="egrp"><label>Deposit</label><input type="number" id="editDep" min="0"></div></div><div class="erow"><div class="egrp"><label>Seller</label><select id="editSeller"></select></div></div><div id="editPreview" style="margin-top:10px;font-size:13px;color:var(--text2)"></div><div class="eact"><button class="ecnl" id="editCancelBtn"><i class="fa-solid fa-xmark"></i>&nbsp; Cancel</button><button class="esave" id="editSaveBtn"><i class="fa-solid fa-check"></i>&nbsp; Save</button></div></div></div>
+<div class="edit-modal" id="discoEditModal"><div class="edit-box"><h3><i class="fa-solid fa-music"></i> <span id="discoEditTitle">Add Disco</span></h3><input type="hidden" id="discoEditIndex" value="-1"><div class="erow"><div class="egrp"><label>Disco Name</label><input type="text" id="discoEditName" placeholder="e.g. Hard Rock Karaoke"></div></div><div style="margin-bottom:10px"><div style="font-size:11px;font-weight:600;color:var(--text2);margin-bottom:6px">Prices</div><div class="erow"><div class="egrp"><label>£ (GBP)</label><input type="number" id="discoPriceGBP" min="0" placeholder="0"></div><div class="egrp"><label>$ (USD)</label><input type="number" id="discoPriceUSD" min="0" placeholder="0"></div></div><div class="erow" style="margin-top:8px"><div class="egrp"><label>€ (EUR)</label><input type="number" id="discoPriceEUR" min="0" placeholder="0"></div><div class="egrp"><label>L.E (EGP)</label><input type="number" id="discoPriceEGP" min="0" placeholder="0"></div></div></div><div class="eact"><button class="ecnl" id="discoEditCancelBtn"><i class="fa-solid fa-xmark"></i>&nbsp; Cancel</button><button class="esave" id="discoEditSaveBtn"><i class="fa-solid fa-check"></i>&nbsp; Save</button></div></div></div>
+
+<div id="mainApp">
+<header class="app-header"><div class="header-top"><div class="logo-area" id="logoArea"><img id="logoImg" src="five-stars-app-icon-v2.png" alt="Logo"><div class="ovl"><i class="fa-solid fa-camera" style="color:#fff;font-size:16px"></i></div></div><div class="lang-sel"><button class="lbtn active" data-lang="en">EN</button><button class="lbtn" data-lang="ru">RU</button><button class="lbtn" data-lang="it">IT</button></div><button id="settingsBtn" style="background:none;border:none;color:var(--text2);font-size:18px;cursor:pointer;padding:8px"><i class="fa-solid fa-gear"></i></button></div><div class="title-wrap"><span class="fstar"><i class="fa-solid fa-star"></i></span><span class="fstar"><i class="fa-solid fa-star"></i></span><span class="fstar"><i class="fa-solid fa-star"></i></span><span class="fstar"><i class="fa-solid fa-star"></i></span><span class="fstar"><i class="fa-solid fa-star"></i></span><div class="title-text">FIVE STARS SO FUN ANIMATION</div></div></header>
+<input type="file" id="logoUpload" accept="image/*" style="display:none">
+<div class="content">
+<div class="view-section active" id="bookingView">
+<div class="hotel-banner"><i class="fa-solid fa-water"></i><div><div class="hl">Hotel Name</div><div class="hn">Coral Sea Water World</div></div></div>
+<div class="form-card"><div class="form-card-title"><i class="fa-solid fa-calendar-days"></i> Date & Day</div><div class="form-row"><div class="form-group"><label class="form-label">Date</label><input type="date" class="form-input" id="bookDate"></div><div class="form-group"><label class="form-label">Day</label><input type="text" class="form-input" id="bookDay" readonly style="background:rgba(255,255,255,0.03)"></div></div></div>
+<div class="form-card"><div class="form-card-title"><i class="fa-solid fa-music"></i> Disco Name</div><div class="form-group"><label class="form-label">Select Disco</label><div class="select-wrap"><select class="form-select" id="discoSelect"><option value="">---</option></select></div></div><div id="priceOpts" style="display:none"><label class="form-label">Select Price</label><div class="price-options" id="priceOptions"></div></div></div>
+<div class="form-card"><div class="form-card-title"><i class="fa-solid fa-user-tie"></i> Seller Name</div><div class="form-group" style="margin-bottom:0"><div class="select-wrap"><select class="form-select" id="sellerSelect"><option value="">---</option></select></div></div></div>
+<div class="form-card"><div class="form-card-title"><i class="fa-solid fa-user"></i> Guest Information</div><div class="form-group"><label class="form-label">Guest Name</label><input type="text" class="form-input" id="guestName" autocomplete="off"></div><div class="form-row"><div class="form-group"><label class="form-label">Room Number</label><input type="text" class="form-input" id="roomNumber" autocomplete="off"></div><div class="form-group"><label class="form-label">Number of Pax</label><input type="number" class="form-input" id="paxNumber" min="1" value="1"></div></div></div>
+<div class="form-card payment-card"><div class="form-card-title"><i class="fa-solid fa-coins"></i> Payment</div><div class="form-row"><div class="form-group"><label class="form-label">Discount</label><input type="number" class="form-input" id="discountInput" min="0" value="0"></div><div class="form-group"><label class="form-label">Deposit</label><input type="number" class="form-input" id="depositInput" min="0" value="0"></div></div><div class="calc-display"><div class="calc-row"><span class="clbl">Price per pax</span><span class="cval" id="calcPrice">--</span></div><div class="calc-row"><span class="clbl">Subtotal</span><span class="cval" id="calcSubtotal">--</span></div><div class="calc-row"><span class="clbl">Discount</span><span class="cval" id="calcDiscount" style="color:var(--danger)">--</span></div><div class="calc-row tot"><span class="clbl">Total Amount</span><span class="cval" id="calcTotal">--</span></div><div class="calc-row"><span class="clbl">Deposit</span><span class="cval" id="calcDeposit" style="color:var(--success)">--</span></div><div class="calc-row"><span class="clbl">Rest</span><span class="cval" id="calcRest" style="color:var(--accent2)">--</span></div></div></div>
+<button class="book-btn" id="bookBtn"><i class="fa-solid fa-ticket"></i>&nbsp; Book Now</button>
+<div class="build-version" id="buildVersion">Example 2 Login Fixed · R-20261012-16</div>
+<div id="bookingSavedPanel" class="booking-saved-panel" hidden aria-live="polite">
+  <div class="booking-saved-heading"><i class="fa-solid fa-circle-check"></i> Booking saved successfully</div>
+  <div id="savedBookingLabel" class="booking-saved-meta"></div>
+  <div class="booking-direct-actions">
+    <button type="button" id="savedPrintBtn" class="book-btn saved-print-btn"><i class="fa-solid fa-print"></i> PRINT RECEIPT + TICKET</button>
+    <button type="button" id="savedCancelBtn" class="book-btn saved-cancel-btn"><i class="fa-solid fa-xmark"></i> CANCEL PRINT</button>
+  </div>
+  <p id="savedPrintStatus" class="booking-direct-help">Print from here even if the preview window does not open. This sends the booking receipt and confirmation ticket. Cancel stops printing only; your booking remains saved.</p>
+  <button type="button" id="openLastReceiptBtn" class="book-btn booking-reopen-btn"><i class="fa-solid fa-receipt"></i> View Booking Receipt</button>
+</div>
+</div>
+<div class="view-section" id="reportsView"><div class="form-card"><div class="form-card-title"><i class="fa-solid fa-chart-bar"></i> Report</div><div class="form-group"><label class="form-label">Select Date</label><input type="date" class="form-input" id="reportDate"></div><div class="report-filters"><button class="rfbtn active" data-filter="today">Today</button><button class="rfbtn" data-filter="tomorrow">Tomorrow</button><button class="rfbtn" data-filter="custom">Custom</button></div></div><div id="reportContent"></div></div>
+<div class="view-section" id="settingsView">
+<div class="form-card"><div class="form-card-title"><i class="fa-solid fa-print"></i> Printer Setup</div><div id="printerStatus" class="printer-status disconnected"><i class="fa-solid fa-circle-xmark"></i> Not connected</div><button class="book-btn" style="font-size:14px;padding:12px;background:linear-gradient(135deg,#2196F3,#1565C0)" id="connectPrinterBtn"><i class="fa-brands fa-bluetooth-b"></i>&nbsp; Connect Printer</button><button class="book-btn" style="font-size:14px;padding:12px" id="testPrinterBtn"><i class="fa-solid fa-receipt"></i>&nbsp; Test Printer — FIVE STARS TEST</button>
+<label class="form-label" for="printMode" style="margin-top:12px">Bluetooth Print Format</label>
+<select class="form-select" id="printMode"><option value="fast">FAST TEXT — receipt + ticket barcode (Android)</option><option value="safe">iPHONE RELIABLE — receipt + ticket, paced Bluetooth</option><option value="graphic">GRAPHIC PREVIEW EXPORT — slower, image-based fallback</option></select>
+<label class="form-label" for="printFontSize" style="margin-top:14px">58 mm Print Font Size</label>
+<select class="form-select" id="printFontSize" aria-label="Print font size"><option value="normal">Normal — same compact style as older receipt</option><option value="large">Large — bigger PAX and totals</option></select>
+<p class="printer-settings-note"><strong>Prints a booking receipt and a confirmation ticket.</strong> The confirmation ticket includes a barcode for the ticket number. <strong>FAST TEXT</strong> uses regular-size ESC/POS type for Android. <strong>iPHONE RELIABLE</strong> sends the same compact receipt in smaller paced Bluetooth packets through Safari with beacio. <strong>GRAPHIC</strong> is only for names with characters unsupported by the printer font and can print much more slowly.</p>
+<div class="printer-settings-note">Android: use Chrome. iPhone: open the HTTPS website in Safari with the <strong>beacio Bluetooth extension</strong> enabled. Tap Connect Printer and choose <strong>Printer001-e7e8</strong>. Uses your tested BLE service <strong>18F0</strong> and characteristic <strong>2AF1</strong>. Connect from only one phone at a time, and keep it awake until printing completes.</div>
+<div id="printProgress" role="status" aria-live="polite"></div><div id="iosPrinterHelp" style="display:none;margin-top:12px;padding:12px;background:rgba(33,150,243,0.12);border:1px solid rgba(100,181,246,0.35);border-radius:10px;font-size:12px;line-height:1.7;color:#E3F2FD"><strong>iPhone Safari + beacio</strong><br>Enable the beacio Safari Bluetooth extension and grant this website permission. Select <strong>iPHONE RELIABLE</strong> mode before printing. If the printer stops after a few lines, reconnect, wait for the printer to finish, then try the saved booking again; do not create a new booking. The extension and printer must remain connected during every packet.</div></div>
+<div class="form-card"><div class="form-card-title"><i class="fa-solid fa-music"></i> Manage Discos & Prices</div><div id="discoList"></div><button class="book-btn" style="font-size:14px;padding:12px;margin-top:10px" id="addDiscoBtn"><i class="fa-solid fa-plus"></i>&nbsp; Add New Disco</button></div>
+<div class="form-card"><div class="form-card-title"><i class="fa-solid fa-key"></i> Change Password</div><div class="form-group"><label class="form-label">New Password</label><input type="password" class="form-input" id="newPwInput"></div><button class="book-btn" style="font-size:14px;padding:12px" id="changePwBtn"><i class="fa-solid fa-check"></i>&nbsp; Save</button></div>
+<div class="form-card"><div class="form-card-title"><i class="fa-solid fa-key"></i> Change Admin Password</div><div class="form-group"><label class="form-label">New Admin Password</label><input type="password" class="form-input" id="newAdminPwInput"></div><button class="book-btn" style="font-size:14px;padding:12px" id="changeAdminPwBtn"><i class="fa-solid fa-check"></i>&nbsp; Save</button></div>
+<div class="form-card"><div class="form-card-title"><i class="fa-solid fa-user-tie"></i> Manage Sellers</div><div class="tag-list" id="sellerTags"></div><div class="add-row"><input type="text" id="newSellerInput" placeholder="New seller..."><button id="addSellerBtn"><i class="fa-solid fa-plus"></i></button></div></div>
+<div class="form-card"><div class="form-card-title"><i class="fa-solid fa-list-check"></i> Manage Bookings</div><div class="form-group"><label class="form-label">Select Date</label><input type="date" class="form-input" id="manageDate"></div><div id="manageList"></div></div>
+<div class="form-card"><div class="form-card-title" style="color:var(--danger)"><i class="fa-solid fa-trash"></i> Clear All Bookings</div><button class="book-btn" style="font-size:14px;padding:12px;background:linear-gradient(135deg,#d32f2f,#b71c1c)" id="clearDataBtn"><i class="fa-solid fa-trash"></i>&nbsp; Clear All Data</button></div>
+</div>
+</div>
+<nav class="bottom-nav"><button class="nav-btn active" data-view="bookingView"><i class="fa-solid fa-ticket"></i>Booking</button><button class="nav-btn" data-view="reportsView"><i class="fa-solid fa-chart-bar"></i>Report</button><button class="nav-btn" data-view="settingsView"><i class="fa-solid fa-gear"></i>Settings</button></nav>
+</div>
+<div class="receipt-modal" id="receiptModal" role="dialog" aria-modal="true" aria-labelledby="receiptModalTitle">
+  <div class="receipt-container">
+    <div class="receipt-topbar">
+      <div class="receipt-topbar-text"><i class="fa-solid fa-circle-check"></i> <span id="receiptModalTitle">Booking Confirmed</span></div>
+      <button type="button" id="closeReceiptTopBtn" class="receipt-top-close" aria-label="Cancel printing and close receipt"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="receipt-inner" id="receiptInner" tabindex="0"></div>
+    <div class="receipt-actions">
+      <div class="receipt-primary-buttons">
+        <button type="button" class="ract-btn pr-btn" id="btPrintBtn"><i class="fa-solid fa-print"></i> PRINT</button>
+        <button type="button" class="ract-btn cl-btn" id="closeReceiptBtn"><i class="fa-solid fa-xmark"></i> CANCEL</button>
+      </div>
+      <div id="receiptPrintChoiceHelp" class="receipt-choice-help">Print booking receipt, or cancel printing. The booking stays saved.</div>
+      <details class="receipt-more-print">
+        <summary>Other print / export options</summary>
+        <div class="receipt-secondary-buttons">
+          <button type="button" class="ract-btn pr-btn" style="background:linear-gradient(135deg,#1976D2,#0D47A1)" id="iosPrintBtn"><i class="fa-solid fa-print"></i> iPhone Print / PDF</button>
+          <button type="button" class="ract-btn pr-btn" style="background:linear-gradient(135deg,#FF8A00,#DA4B00)" id="xprinterShareBtn"><i class="fa-solid fa-share-nodes"></i> Export Receipt Image</button>
+        </div>
+      </details>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script>
+const firebaseConfig={apiKey:"AIzaSyCIS8Ec7OCnJBpFXmo3Q-hXxqbUBBRSFzk",authDomain:"disco-booking-ac81a.firebaseapp.com",projectId:"disco-booking-ac81a",storageBucket:"disco-booking-ac81a.firebasestorage.app",messagingSenderId:"995475287418",appId:"1:995475287418:web:a82c7b2de0687685127ac3"};
+firebase.initializeApp(firebaseConfig);const db=firebase.firestore();db.enablePersistence().catch(()=>{});
+
+const HOTEL_NAME="Coral Sea Water World";
+const HOTEL_ID=HOTEL_NAME.toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'');
+const DEFAULT_DISCOS=[{name:"Hard Rock Karaoke",prices:{'£':25,'$':33,'€':30,'L.E':1730}},{name:"Hard Rock Night Club",prices:{'£':25,'$':33,'€':30,'L.E':1730}},{name:"Caligula Night Club",prices:{'£':25,'$':33,'€':30,'L.E':1730}},{name:"Pacha Night Club",prices:{'£':25,'$':33,'€':30,'L.E':1730}},{name:"Dolce Vita Desert Party",prices:{'£':40,'€':45,'$':50,'L.E':2650}},{name:"Soho House Night Club",prices:{'£':25,'$':33,'€':30,'L.E':1730}},{name:"Vibe Night Club",prices:{'£':25,'$':33,'€':30,'L.E':1730}},{name:"Kalimera Night Club",prices:{'£':25,'$':33,'€':30,'L.E':1730}}];
+const DEFAULT_SELLERS=["Ahmed","Mohamed","Hassan","Omar","Ibrahim","Ali","Mahmoud","Youssef"];
+const TX={en:{days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],thankYou:"Thank you! Enjoy your night!",fiveStars:"FIVE STARS SO FUN ANIMATION",bookedFor:"Booked for",receiptNo:"Receipt No",totalGuests:"Total Guests",totalRevenue:"Total Revenue",totalPax:"Total Pax",noData:"No bookings found",printReport:"Print Report",fillAll:"Please fill all fields",selectPriceWarn:"Please select a price",printSuccess:"Printed!",pwChanged:"Password saved!",adminPwChanged:"Admin password saved!",sellerAdded:"Seller added",exists:"Already exists",dataCleared:"Data cleared",bookingSuccess:"Booking successful!",adminAccess:"Admin Access",adminDesc:"Enter admin password",wrongAdminPw:"Wrong admin password!",minChars:"Min 3 characters",bookingDeleted:"Booking deleted",bookingUpdated:"Booking updated"},ru:{days:["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],thankYou:"Спасибо! Хорошего вечера!",fiveStars:"FIVE STARS SO FUN ANIMATION",bookedFor:"Забронировано на",receiptNo:"Чек №",totalGuests:"Всего гостей",totalRevenue:"Общая выручка",totalPax:"Всего чел.",noData:"Бронирований не найдено",printReport:"Печать отчёта",fillAll:"Заполните все поля",selectPriceWarn:"Выберите цену",printSuccess:"Напечатано!",pwChanged:"Пароль сохранён!",adminPwChanged:"Пароль администратора сохранён!",sellerAdded:"Продавец добавлен",exists:"Уже существует",dataCleared:"Данные очищены",bookingSuccess:"Бронирование успешно!",adminAccess:"Доступ администратора",adminDesc:"Введите пароль администратора",wrongAdminPw:"Неверный пароль!",minChars:"Минимум 3 символа",bookingDeleted:"Бронирование удалено",bookingUpdated:"Бронирование обновлено"},it:{days:["Domenica","Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato"],thankYou:"Grazie! Buona serata!",fiveStars:"FIVE STARS SO FUN ANIMATION",bookedFor:"Prenotato per",receiptNo:"Ricevuta N.",totalGuests:"Totale Ospiti",totalRevenue:"Ricavo Totale",totalPax:"Totale Persone",noData:"Nessuna prenotazione",printReport:"Stampa Report",fillAll:"Compila tutti i campi",selectPriceWarn:"Seleziona un prezzo",printSuccess:"Stampato!",pwChanged:"Password salvata!",adminPwChanged:"Password admin salvata!",sellerAdded:"Venditore aggiunto",exists:"Già esistente",dataCleared:"Dati cancellati",bookingSuccess:"Prenotazione riuscita!",adminAccess:"Accesso Admin",adminDesc:"Inserisci la password admin",wrongAdminPw:"Password admin errata!",minChars:"Min 3 caratteri",bookingDeleted:"Prenotazione cancellata",bookingUpdated:"Prenotazione aggiornata"}};
+
+const UI_TX={
+  ru:{
+    "Hotel Name":"Название отеля","Date & Day":"Дата и день","Date":"Дата","Day":"День","Disco Name":"Название дискотеки","Select Disco":"Выберите дискотеку","Select Price":"Выберите цену","Seller Name":"Имя продавца","Guest Information":"Информация о госте","Guest Name":"Имя гостя","Room Number":"Номер комнаты","Number of Pax":"Количество гостей","Payment":"Оплата","Discount":"Скидка","Deposit":"Аванс","Price per pax":"Цена за человека","Subtotal":"Промежуточный итог","Total Amount":"Общая сумма","Rest":"Остаток","Book Now":"Забронировать","Report":"Отчёт","Select Date":"Выберите дату","Today":"Сегодня","Tomorrow":"Завтра","Custom":"Другая дата","Printer Setup":"Настройка принтера","Not connected":"Не подключён","Connect Printer":"Подключить принтер","First time: select your printer. After that, printing is instant!":"При первом подключении выберите принтер. После этого печать будет мгновенной!","Manage Discos & Prices":"Управление дискотеками и ценами","Add New Disco":"Добавить дискотеку","Change Password":"Изменить пароль","New Password":"Новый пароль","Save":"Сохранить","Change Admin Password":"Изменить пароль администратора","New Admin Password":"Новый пароль администратора","Manage Sellers":"Управление продавцами","New seller...":"Новый продавец...","Manage Bookings":"Управление бронированиями","Clear All Bookings":"Удалить все бронирования","Clear All Data":"Удалить все данные","Booking":"Бронирование","Settings":"Настройки","Print":"Печать","Close":"Закрыть","Enter":"Войти","Admin Access":"Доступ администратора","Enter admin password":"Введите пароль администратора","Cancel":"Отмена","Confirm":"Подтвердить","Edit Booking":"Изменить бронирование","Room":"Комната","Pax":"Гости","Disco":"Дискотека","Price":"Цена","Seller":"Продавец","Guest":"Гость","Disco Name":"Название дискотеки","Prices":"Цены","Add Disco":"Добавить дискотеку","e.g. Hard Rock Karaoke":"Например, Hard Rock Karaoke","Currency Breakdown":"Разбивка по валютам","Total":"Итого","Dep":"Аванс","No bookings found":"Бронирования не найдены"
+  },
+  it:{
+    "Hotel Name":"Nome dell'hotel","Date & Day":"Data e giorno","Date":"Data","Day":"Giorno","Disco Name":"Nome della discoteca","Select Disco":"Seleziona discoteca","Select Price":"Seleziona prezzo","Seller Name":"Nome del venditore","Guest Information":"Informazioni sull'ospite","Guest Name":"Nome ospite","Room Number":"Numero camera","Number of Pax":"Numero di persone","Payment":"Pagamento","Discount":"Sconto","Deposit":"Acconto","Price per pax":"Prezzo a persona","Subtotal":"Subtotale","Total Amount":"Importo totale","Rest":"Resto","Book Now":"Prenota ora","Report":"Report","Select Date":"Seleziona data","Today":"Oggi","Tomorrow":"Domani","Custom":"Personalizzata","Printer Setup":"Configurazione stampante","Not connected":"Non connessa","Connect Printer":"Collega stampante","First time: select your printer. After that, printing is instant!":"La prima volta seleziona la stampante. In seguito, la stampa sarà immediata!","Manage Discos & Prices":"Gestisci discoteche e prezzi","Add New Disco":"Aggiungi discoteca","Change Password":"Cambia password","New Password":"Nuova password","Save":"Salva","Change Admin Password":"Cambia password amministratore","New Admin Password":"Nuova password amministratore","Manage Sellers":"Gestisci venditori","New seller...":"Nuovo venditore...","Manage Bookings":"Gestisci prenotazioni","Clear All Bookings":"Cancella tutte le prenotazioni","Clear All Data":"Cancella tutti i dati","Booking":"Prenotazione","Settings":"Impostazioni","Print":"Stampa","Close":"Chiudi","Enter":"Accedi","Admin Access":"Accesso amministratore","Enter admin password":"Inserisci la password amministratore","Cancel":"Annulla","Confirm":"Conferma","Edit Booking":"Modifica prenotazione","Room":"Camera","Pax":"Persone","Disco":"Discoteca","Price":"Prezzo","Seller":"Venditore","Guest":"Ospite","Prices":"Prezzi","Add Disco":"Aggiungi discoteca","e.g. Hard Rock Karaoke":"es. Hard Rock Karaoke","Currency Breakdown":"Riepilogo per valuta","Total":"Totale","Dep":"Acconto","No bookings found":"Nessuna prenotazione trovata"
+  }
+};
+
+let currentLang='en',selectedDisco=null,selectedCurrency=null,selectedPrice=0,lastBooking=null,adminAction=null;
+let cache={bookings:[],password:'V7#mQ92!rK5@pL38',adminPassword:'54321',sellers:DEFAULT_SELLERS.slice(),discos:DEFAULT_DISCOS.slice(),receiptCounter:1000,logo:'',printerDeviceId:''};
+let btDevice=null,btServer=null,btChar=null,printerReady=false;
+
+function t(k){return(TX[currentLang]&&TX[currentLang][k])||TX.en[k]||k}
+function toast(msg,type='info'){const c=document.getElementById('toastContainer'),d=document.createElement('div');d.className='toast '+type;const ic={success:'fa-check-circle',error:'fa-exclamation-circle',info:'fa-info-circle'};d.innerHTML=`<i class="fa-solid ${ic[type]||ic.info}"></i> ${msg}`;c.appendChild(d);setTimeout(()=>{d.classList.add('out');setTimeout(()=>d.remove(),300)},3000)}
+
+// FIRESTORE: one document per booking; hotel settings are stored separately.
+const hotelSettingsRef=db.collection('hotelSettings').doc(HOTEL_ID);
+const bookingsRef=db.collection('bookings');
+const hotelBookingsQuery=bookingsRef.where('hotelId','==',HOTEL_ID);
+let bookingsUnsubscribe=null,settingsUnsubscribe=null;
+function applyHotelSettings(d){cache.password=d.password||cache.password;cache.adminPassword=d.adminPassword||cache.adminPassword;cache.sellers=d.sellers||cache.sellers;cache.discos=d.discos||cache.discos;cache.receiptCounter=d.receiptCounter||cache.receiptCounter;cache.logo=d.logo||cache.logo;cache.printerDeviceId=d.printerDeviceId||cache.printerDeviceId}
+async function migrateLegacyData(){if(HOTEL_ID!=='coral_sea_water_world')return;let settings=await hotelSettingsRef.get();if(settings.exists&&settings.data().legacyMigrated)return;let legacy=await db.collection('appData').doc(HOTEL_ID).get();if(!legacy.exists)legacy=await db.collection('appData').doc('main').get();if(legacy.exists){const old=legacy.data();const oldBookings=Array.isArray(old.bookings)?old.bookings:[];for(let i=0;i<oldBookings.length;i+=400){const batch=db.batch();oldBookings.slice(i,i+400).forEach((b,j)=>{const key=String(b.id==null?i+j:b.id).replace(/[^A-Za-z0-9_-]/g,'_');batch.set(bookingsRef.doc(HOTEL_ID+'_'+key),{...b,hotelId:HOTEL_ID,hotel:b.hotel||HOTEL_NAME})});await batch.commit()}if(!settings.exists)await hotelSettingsRef.set({password:old.password||'V7#mQ92!rK5@pL38',adminPassword:old.adminPassword||'54321',sellers:old.sellers||DEFAULT_SELLERS.slice(),discos:old.discos||DEFAULT_DISCOS.slice(),receiptCounter:old.receiptCounter||1000,logo:old.logo||'',printerDeviceId:old.printerDeviceId||'',legacyMigrated:true});else await hotelSettingsRef.set({legacyMigrated:true},{merge:true})}else if(!settings.exists)await hotelSettingsRef.set({password:cache.password,adminPassword:cache.adminPassword,sellers:cache.sellers,discos:cache.discos,receiptCounter:cache.receiptCounter,logo:cache.logo,printerDeviceId:cache.printerDeviceId||'',legacyMigrated:true})}
+// One-time login password replacement. Do not change any other hotel settings.
+async function upgradeOldLoginPassword(){
+  await db.runTransaction(async transaction=>{
+    const settings=await transaction.get(hotelSettingsRef);
+    if(settings.exists&&settings.data().password==='12345'){
+      transaction.update(hotelSettingsRef,{password:'V7#mQ92!rK5@pL38'});
+    }
+  });
+}
+async function loadAllData(){try{await migrateLegacyData();await upgradeOldLoginPassword();const settings=await hotelSettingsRef.get();if(settings.exists)applyHotelSettings(settings.data());const snapshot=await hotelBookingsQuery.get();cache.bookings=snapshot.docs.map(doc=>({...doc.data(),firestoreId:doc.id}));if(!settingsUnsubscribe)settingsUnsubscribe=hotelSettingsRef.onSnapshot(doc=>{if(doc.exists){applyHotelSettings(doc.data());if(document.getElementById('mainApp').style.display==='block'){popSellers();popDiscos();updateCalc();if(document.getElementById('settingsView').classList.contains('active'))renderSettings()}}},e=>{console.error('Firestore settings listener failed:',e);toast('Firestore settings listener failed: '+(e.message||e.code||'Unknown error'),'error')});if(!bookingsUnsubscribe)bookingsUnsubscribe=hotelBookingsQuery.onSnapshot(snapshot=>{cache.bookings=snapshot.docs.map(doc=>({...doc.data(),firestoreId:doc.id}));if(document.getElementById('mainApp').style.display==='block'){if(document.getElementById('reportsView').classList.contains('active'))loadReport();if(document.getElementById('settingsView').classList.contains('active'))renderSettings();else renderManage()}},e=>{console.error('Firestore bookings listener failed:',e);toast('Firestore bookings listener failed: '+(e.message||e.code||'Unknown error'),'error')})}catch(e){console.error('Firestore load failed:',e);toast('Firestore load failed: '+(e.message||e.code||'Unknown error'),'error')}}
+async function saveAllData(){try{await hotelSettingsRef.set({password:cache.password,adminPassword:cache.adminPassword,sellers:cache.sellers,discos:cache.discos,logo:cache.logo,printerDeviceId:cache.printerDeviceId||''},{merge:true});return true}catch(e){console.error('Firestore settings save failed:',e);toast('Firestore settings save failed: '+(e.message||e.code||'Unknown error'),'error');return false}}
+async function reserveReceiptId(){try{let nextId=1001;await db.runTransaction(async transaction=>{const snapshot=await transaction.get(hotelSettingsRef);const current=snapshot.exists&&Number.isFinite(snapshot.data().receiptCounter)?snapshot.data().receiptCounter:1000;nextId=current+1;transaction.set(hotelSettingsRef,{receiptCounter:nextId},{merge:true})});cache.receiptCounter=nextId;return nextId}catch(e){console.error('Receipt number reservation failed:',e);toast('Could not create a receipt number: '+(e.message||e.code||'Unknown error'),'error');return null}}
+async function resetReceiptCounter(){try{await db.runTransaction(async transaction=>{await transaction.get(hotelSettingsRef);transaction.set(hotelSettingsRef,{receiptCounter:1000},{merge:true})});cache.receiptCounter=1000;return true}catch(e){console.error('Receipt counter reset failed:',e);toast('Could not reset receipt number: '+(e.message||e.code||'Unknown error'),'error');return false}}
+async function saveBooking(b){try{const data={...b,hotelId:HOTEL_ID,hotel:HOTEL_NAME};delete data.firestoreId;if(b.firestoreId)await bookingsRef.doc(b.firestoreId).set(data);else{const ref=await bookingsRef.add(data);b.firestoreId=ref.id}return true}catch(e){console.error('Firestore booking save failed:',e);toast('Firestore booking save failed: '+(e.message||e.code||'Unknown error'),'error');return false}}
+async function removeBookingFromFirestore(b){try{if(!b.firestoreId)throw new Error('This booking has no Firestore document ID. Reload the app and try again.');await bookingsRef.doc(b.firestoreId).delete();return true}catch(e){console.error('Firestore booking delete failed:',e);toast('Firestore booking delete failed: '+(e.message||e.code||'Unknown error'),'error');return false}}
+async function deleteAllHotelBookings(){try{const snapshot=await hotelBookingsQuery.get();for(let i=0;i<snapshot.docs.length;i+=400){const batch=db.batch();snapshot.docs.slice(i,i+400).forEach(doc=>batch.delete(doc.ref));await batch.commit()}return true}catch(e){console.error('Firestore clear bookings failed:',e);toast('Firestore clear bookings failed: '+(e.message||e.code||'Unknown error'),'error');return false}}
+
+// XP-P502A BLE: service and write characteristic confirmed by a physical
+// iPhone nRF Connect print test. Unlike the previous code, do not select the
+// first writable characteristic or guess unrelated service UUIDs.
+const XP_SERVICE='000018f0-0000-1000-8000-00805f9b34fb';
+const XP_WRITE='00002af1-0000-1000-8000-00805f9b34fb';
+// Keep BLE packets at or below the 20-byte legacy ATT payload. iOS/beacio uses
+// 12-byte packets with 95ms pauses to give the printer and browser bridge time.
+const XP_PACKET_BYTES=20;
+let printerBusy=false,printerLastError='';
+function setPrinterProgress(message){const el=document.getElementById('printProgress');if(el)el.textContent=message;}
+function updatePrinterUI(){
+  const el=document.getElementById('printerStatus');if(!el)return;
+  const online=Boolean(printerReady&&btDevice?.gatt?.connected&&btChar);
+  printerReady=online;
+  if(online){el.className='printer-status connected';el.innerHTML='<i class="fa-solid fa-circle-check"></i> Connected: '+(btDevice?.name||'XP-P502A')+' (18F0 / 2AF1)';}
+  else{el.className='printer-status disconnected';el.innerHTML='<i class="fa-solid fa-circle-xmark"></i> Printer not connected';}
+}
+function onPrinterDisconnected(){
+  printerReady=false;btChar=null;btServer=null;updatePrinterUI();
+  if(!printerBusy)setPrinterProgress('Disconnected. Tap Connect Printer to reconnect.');
+}
+async function doConnect(){
+  if(!btDevice)return false;
+  try{
+    if(!btDevice.gatt.connected)await btDevice.gatt.connect();
+    btServer=btDevice.gatt;
+    const svc=await btServer.getPrimaryService(XP_SERVICE);
+    const ch=await svc.getCharacteristic(XP_WRITE);
+    if(!ch.properties.write&&!ch.properties.writeWithoutResponse)throw new Error('Characteristic 2AF1 is not writable on this printer');
+    btChar=ch;printerReady=true;
+    btDevice.removeEventListener('gattserverdisconnected',onPrinterDisconnected);
+    btDevice.addEventListener('gattserverdisconnected',onPrinterDisconnected);
+    updatePrinterUI();setPrinterProgress('Connected. Ready to print to '+(btDevice.name||'XP-P502A')+'.');
+    return true;
+  }catch(error){
+    printerLastError=error.message||String(error);console.error('XP-P502A BLE connection:',error);
+    printerReady=false;btChar=null;updatePrinterUI();
+    try{btDevice?.gatt?.disconnect()}catch(_e){}
+    setPrinterProgress('Connection failed: '+printerLastError);
+    return false;
+  }
+}
+async function connectPrinter(){
+  if(printerBusy){toast('Please wait for the current print to finish.','info');return false;}
+  if(!window.isSecureContext){toast('Bluetooth requires HTTPS. Open the published GitHub Pages URL.','error');return false;}
+  if(!navigator.bluetooth){
+    const help=document.getElementById('iosPrinterHelp');if(isIOSPrinterDevice()&&help)help.style.display='block';
+    toast(isIOSPrinterDevice()?'Enable the beacio Safari extension and grant this website Bluetooth permission.':'Use Chrome on Android for Bluetooth.','error');return false;
+  }
+  try{
+    // requestDevice must be invoked as part of a genuine button press.
+    const device=await navigator.bluetooth.requestDevice({
+      acceptAllDevices:true,optionalServices:[XP_SERVICE]
+    });
+    btDevice=device;
+    const ok=await doConnect();
+    if(ok){
+      try{localStorage.setItem('fiveStarsXpPrinterId',device.id)}catch(_e){}
+      toast('XP-P502A connected.','success');
+    }else toast('Could not open Bluetooth service 18F0 / characteristic 2AF1.','error');
+    return ok;
+  }catch(error){
+    if(error.name!=='NotFoundError'){console.error(error);toast('Bluetooth connection: '+error.message,'error')}
+    return false;
+  }
+}
+async function autoReconnect(){
+  if(!navigator.bluetooth?.getDevices||!window.isSecureContext)return;
+  try{
+    const devices=await navigator.bluetooth.getDevices();
+    const preferred=(()=>{try{return localStorage.getItem('fiveStarsXpPrinterId')}catch(_e){return null}})();
+    const match=devices.find(d=>d.id===preferred)||devices.find(d=>/^Printer/i.test(d.name||''));
+    if(match){btDevice=match;await doConnect();}
+  }catch(error){console.warn('Previously paired XP-P502A cannot reconnect automatically:',error);}
+}
+function xpSleep(ms){return new Promise(resolve=>setTimeout(resolve,ms));}
+function xpReliableMode(){
+  return isIOSPrinterDevice() || document.getElementById('printMode')?.value==='safe';
+}
+async function btWriteBytes(bytes,onProgress){
+  if(!printerReady||!btChar||!btDevice?.gatt?.connected)throw new Error('Printer not connected');
+  const data=bytes instanceof Uint8Array?bytes:new Uint8Array(bytes);
+  const careful=xpReliableMode();
+  const packetSize=careful?12:XP_PACKET_BYTES;
+  const interval=careful?95:8;
+  // Text-only receipts usually have <1 KB of data. Sequential acknowledgement
+  // + small pauses prevents overfilling the XP-P502A / Safari extension buffer.
+  for(let i=0;i<data.length;i+=packetSize){
+    if(!btDevice?.gatt?.connected)throw new Error('Printer disconnected while sending data');
+    const part=data.subarray(i,Math.min(data.length,i+packetSize));
+    try{
+      if(btChar.properties.write){
+        if(typeof btChar.writeValueWithResponse==='function')await btChar.writeValueWithResponse(part);
+        else await btChar.writeValue(part);
+      }else if(btChar.properties.writeWithoutResponse){
+        if(typeof btChar.writeValueWithoutResponse==='function')await btChar.writeValueWithoutResponse(part);
+        else await btChar.writeValue(part);
+      }else throw new Error('Characteristic 2AF1 is not writable');
+    }catch(error){
+      throw new Error('Bluetooth stopped at '+i+'/'+data.length+' bytes: '+(error.message||error));
+    }
+    if(onProgress)onProgress(Math.min(data.length,i+part.length),data.length);
+    if(careful && (i%120<packetSize))setPrinterProgress('iPhone: sending receipt '+Math.round(100*(i+part.length)/data.length)+'% — keep Safari open.');
+    await xpSleep(interval);
+  }
+}
+async function btPrint(data){try{await btWriteBytes(data);return true}catch(error){printerLastError=error.message||String(error);console.error(error);setPrinterProgress('Print failed: '+printerLastError);return false}}
+async function testPrinter(){
+  if(printerBusy)return;
+  if(!printerReady){toast('Connect Printer first in Settings.','info');return;}
+  printerBusy=true;document.getElementById('testPrinterBtn').disabled=true;
+  try{
+    setPrinterProgress('Sending the small Bluetooth test...');
+    const message=new TextEncoder().encode('FIVE STARS TEST\n\n');
+    await btWriteBytes(message);
+    setPrinterProgress('Test sent to printer. Check the paper for FIVE STARS TEST.');
+    toast('Test data sent — check printer paper.','success');
+  }catch(error){setPrinterProgress('Test failed: '+error.message);toast('Test failed: '+error.message,'error');}
+  finally{printerBusy=false;document.getElementById('testPrinterBtn').disabled=false;updatePrinterUI();}
+}
+document.getElementById('connectPrinterBtn').addEventListener('click',connectPrinter);
+document.getElementById('testPrinterBtn').addEventListener('click',testPrinter);
+document.getElementById('printMode').value=isIOSPrinterDevice()?'safe':'fast';
+try{
+  // A new release resets old graphic/extra-large printer preferences once.
+  // Preserve the user's choices after the first visit to this version.
+  if(localStorage.getItem('fiveStarsTextOnlyV4')!=='1'){
+    localStorage.setItem('fiveStarsXpPrintMode', /iPhone|iPad|iPod/i.test(navigator.userAgent)?'safe':'fast');
+    localStorage.setItem('fiveStarsXpPrintSize','normal');
+    localStorage.setItem('fiveStarsTextOnlyV4','1');
+  }
+  let mode=localStorage.getItem('fiveStarsXpPrintMode');
+  if(mode==='text')mode='fast';
+  if(['fast','safe','graphic'].includes(mode))document.getElementById('printMode').value=mode;
+  let size=localStorage.getItem('fiveStarsXpPrintSize');
+  if(size==='xl')size='normal';
+  if(size==='normal'||size==='large')document.getElementById('printFontSize').value=size;
+}catch(_e){}
+document.getElementById('printMode').addEventListener('change',function(){try{localStorage.setItem('fiveStarsXpPrintMode',this.value)}catch(_e){}});
+document.getElementById('printFontSize').addEventListener('change',function(){try{localStorage.setItem('fiveStarsXpPrintSize',this.value)}catch(_e){}});
+function isIOSPrinterDevice(){return /iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)}
+if(isIOSPrinterDevice()){
+  const help=document.getElementById('iosPrinterHelp');if(help)help.style.display='block';
+  const status=document.getElementById('printerStatus');
+  if(status&&!navigator.bluetooth){status.className='printer-status disconnected';status.innerHTML='<i class="fa-solid fa-circle-info"></i> Enable beacio in Safari to connect this printer.';}
+}
+
+
+// LOGIN
+document.getElementById('pwBtn').addEventListener('click',tryLogin);document.getElementById('pwInput').addEventListener('keydown',e=>{if(e.key==='Enter')tryLogin()});
+function tryLogin(){if(document.getElementById('pwInput').value===cache.password){document.getElementById('passwordScreen').style.display='none';document.getElementById('mainApp').style.display='block';initApp()}else{document.getElementById('pwError').textContent='Wrong password!';document.getElementById('pwInput').value='';setTimeout(()=>document.getElementById('pwError').textContent='',2000)}}
+
+// ADMIN
+function showAdmin(cb){adminAction=cb;document.getElementById('adminTitle').textContent=t('adminAccess');document.getElementById('adminDesc').textContent=t('adminDesc');document.getElementById('adminPwInput').value='';document.getElementById('adminPwError').textContent='';document.getElementById('adminModal').classList.add('show');setTimeout(()=>document.getElementById('adminPwInput').focus(),100)}
+function hideAdmin(){document.getElementById('adminModal').classList.remove('show');adminAction=null}
+document.getElementById('adminConfirmBtn').addEventListener('click',()=>{if(document.getElementById('adminPwInput').value===cache.adminPassword){const a=adminAction;hideAdmin();if(a)a()}else{document.getElementById('adminPwError').textContent=t('wrongAdminPw');document.getElementById('adminPwInput').value='';setTimeout(()=>document.getElementById('adminPwError').textContent='',2500)}});
+document.getElementById('adminCancelBtn').addEventListener('click',hideAdmin);document.getElementById('adminModal').addEventListener('click',function(e){if(e.target===this)hideAdmin()});
+
+function initApp(){setToday();popDiscos();popSellers();updateCalc();document.getElementById('reportDate').value=getTodayStr();document.getElementById('manageDate').value=getTodayStr();loadReport();autoReconnect()}
+function setToday(){document.getElementById('bookDate').value=getTodayStr();updateDay()}
+function getTodayStr(){return new Date().toISOString().split('T')[0]}
+function getTomorrowStr(){const d=new Date();d.setDate(d.getDate()+1);return d.toISOString().split('T')[0]}
+document.getElementById('bookDate').addEventListener('change',updateDay);
+function updateDay(){const v=document.getElementById('bookDate').value;if(v)document.getElementById('bookDay').value=t('days')[new Date(v+'T00:00:00').getDay()];else document.getElementById('bookDay').value=''}
+
+function popDiscos(){const s=document.getElementById('discoSelect');s.innerHTML='<option value="">---</option>';cache.discos.forEach((d,i)=>{const o=document.createElement('option');o.value=i;o.textContent=d.name;s.appendChild(o)})}
+function popSellers(){const s=document.getElementById('sellerSelect');s.innerHTML='<option value="">---</option>';cache.sellers.forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;s.appendChild(o)})}
+
+document.getElementById('discoSelect').addEventListener('change',function(){const idx=this.value;const ct=document.getElementById('priceOpts');const op=document.getElementById('priceOptions');selectedCurrency=null;selectedPrice=0;selectedDisco=idx!==''?cache.discos[idx]:null;if(selectedDisco){ct.style.display='block';op.innerHTML='';Object.keys(selectedDisco.prices).forEach(cur=>{const btn=document.createElement('button');btn.type='button';btn.className='price-btn';btn.dataset.cur=cur;btn.dataset.price=selectedDisco.prices[cur];btn.innerHTML=`<span class="csym">${cur}</span><span class="cval">${selectedDisco.prices[cur]}</span>`;btn.addEventListener('click',function(){document.querySelectorAll('.price-btn').forEach(b=>b.classList.remove('sel'));this.classList.add('sel');selectedCurrency=this.dataset.cur;selectedPrice=parseFloat(this.dataset.price);updateCalc()});op.appendChild(btn)})}else ct.style.display='none';updateCalc()});
+
+function updateCalc(){const pax=parseInt(document.getElementById('paxNumber').value)||0;const disc=parseFloat(document.getElementById('discountInput').value)||0;const dep=parseFloat(document.getElementById('depositInput').value)||0;const cur=selectedCurrency||'';const sub=selectedPrice*pax;const tot=Math.max(0,sub-disc);const rest=Math.max(0,tot-dep);document.getElementById('calcPrice').textContent=selectedPrice?cur+' '+selectedPrice:'--';document.getElementById('calcSubtotal').textContent=selectedPrice?cur+' '+sub:'--';document.getElementById('calcDiscount').textContent=disc?cur+' '+disc:cur+' 0';document.getElementById('calcTotal').textContent=selectedPrice?cur+' '+tot:'--';document.getElementById('calcDeposit').textContent=dep?cur+' '+dep:cur+' 0';document.getElementById('calcRest').textContent=selectedPrice?cur+' '+rest:'--'}
+document.getElementById('paxNumber').addEventListener('input',updateCalc);document.getElementById('discountInput').addEventListener('input',updateCalc);document.getElementById('depositInput').addEventListener('input',updateCalc);
+
+// BOOKING — save once, then open a print dialog with its controls always visible.
+let bookingSaveBusy=false;
+function resetGuestEntryFields(){
+  document.getElementById('guestName').value='';
+  document.getElementById('roomNumber').value='';
+  document.getElementById('paxNumber').value='1';
+  document.getElementById('discountInput').value='0';
+  document.getElementById('depositInput').value='0';
+  updateCalc();
+}
+function showSavedBookingPanel(b){
+  const panel=document.getElementById('bookingSavedPanel');
+  if(!panel||!b)return;
+  document.getElementById('savedBookingLabel').textContent=`FS-${b.id} • ${b.guestName} • ${b.disco} • ${b.pax} PAX`;
+  panel.hidden=false;
+  const note=document.getElementById('savedPrintStatus');
+  if(note)note.textContent='Booking FS-'+b.id+' saved. Print or cancel below. Your booking is safe in Firebase.';
+}
+document.getElementById('openLastReceiptBtn').addEventListener('click',()=>{
+  if(!lastBooking){toast('No recent receipt is available. Open Report to find previous bookings.','info');return;}
+  showReceipt(lastBooking);
+});
+// Backup controls do NOT depend on opening the receipt overlay.
+// They always refer to the last successfully saved booking.
+document.getElementById('savedPrintBtn').addEventListener('click',async function(){
+  if(!lastBooking){toast('Please open a saved booking from Report.','info');return;}
+  const status=document.getElementById('savedPrintStatus');
+  status.textContent='Preparing print for booking FS-'+lastBooking.id+'...';
+  // The existing native Bluetooth handler works even if the modal is hidden.
+  // It initiates the Chrome Bluetooth picker from this genuine user tap.
+  try{
+    const mainPrint=document.getElementById('btPrintBtn');
+    if(!mainPrint){status.textContent='Print control unavailable. Please update the website.';return;}
+    mainPrint.click();
+  }catch(error){
+    console.error('Direct print fallback:',error);
+    status.textContent='Printing could not start: '+(error.message||String(error));
+    toast(status.textContent,'error');
+  }
+});
+document.getElementById('savedCancelBtn').addEventListener('click',()=>{
+  if(receiptPrintBusy||printerBusy){toast('Wait for the print transfer to finish before cancelling.','info');return;}
+  closeReceipt();
+  document.getElementById('savedPrintStatus').textContent='Printing cancelled. Booking saved. You can print it later.';
+  toast('Printing cancelled. Your booking is saved.','info');
+});
+document.getElementById('bookBtn').addEventListener('click',async function(){
+  if(bookingSaveBusy)return;
+  const dv=document.getElementById('bookDate').value;
+  const dy=document.getElementById('bookDay').value;
+  const di=document.getElementById('discoSelect').value;
+  const sl=document.getElementById('sellerSelect').value;
+  const gn=document.getElementById('guestName').value.trim();
+  const rm=document.getElementById('roomNumber').value.trim();
+  const px=parseInt(document.getElementById('paxNumber').value,10)||0;
+  const dc=parseFloat(document.getElementById('discountInput').value)||0;
+  const dp=parseFloat(document.getElementById('depositInput').value)||0;
+  if(!dv||di===''||!sl||!gn||!rm||px<1){toast(t('fillAll'),'error');return;}
+  if(!selectedCurrency||!selectedPrice){toast(t('selectPriceWarn'),'error');return;}
+  bookingSaveBusy=true;
+  const button=this,oldLabel=button.innerHTML;
+  button.disabled=true;
+  button.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> Saving booking...';
+  let b=null,success=false;
+  try{
+    const sub=selectedPrice*px,tot=Math.max(0,sub-dc),rest=Math.max(0,tot-dp);
+    const nextId=await reserveReceiptId();if(nextId===null)return;
+    b={id:nextId,date:dv,day:dy,disco:selectedDisco.name,currency:selectedCurrency,
+      pricePerPax:selectedPrice,hotel:HOTEL_NAME,hotelId:HOTEL_ID,seller:sl,
+      guestName:gn,roomNumber:rm,pax:px,discount:dc,deposit:dp,
+      total:tot,rest,subtotal:sub,timestamp:new Date().toISOString()};
+    if(!await saveBooking(b))return;
+    success=true;
+    if(!cache.bookings.some(x=>x.firestoreId===b.firestoreId||x.id===b.id))cache.bookings.push(b);
+    lastBooking=b;
+    showSavedBookingPanel(b);
+    // Booking is saved exactly once. Clear guest-entry fields BEFORE offering printing.
+    // Keep date, disco, seller and currency to speed up the next new booking.
+    resetGuestEntryFields();
+    try{showReceipt(b)}catch(receiptError){
+      console.error('Receipt window could not open:',receiptError);
+      document.getElementById('savedPrintStatus').textContent='Receipt preview unavailable. Use PRINT RECEIPT + TICKET below.';
+      document.getElementById('bookingSavedPanel').scrollIntoView({block:'nearest',behavior:'smooth'});
+    }
+    toast(t('bookingSuccess'),'success');
+  }catch(error){
+    console.error('Booking save/receipt error:',error);
+    if(success){
+      resetGuestEntryFields();
+      toast('Booking saved! Tap View Booking Receipt below.','info');
+      if(b){lastBooking=b;showSavedBookingPanel(b);document.getElementById('bookingSavedPanel').scrollIntoView({block:'nearest',behavior:'smooth'});}
+    }else toast('Booking error: '+(error.message||String(error)),'error');
+  }finally{
+    bookingSaveBusy=false;button.disabled=false;button.innerHTML=oldLabel;
+  }
+});
+
+async function directPrint(b){
+  if(!b||printerBusy)return false;
+  if(!printerReady){toast('Connect XP-P502A in Settings first.','info');return false;}
+  const button=document.getElementById('btPrintBtn');printerBusy=true;button.disabled=true;
+  const old=button.innerHTML;
+  try{
+    const mode=document.getElementById('printMode').value;
+    button.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> Printing...';
+    const raw=sanitizeBookingForEscPos(b);
+    // For fast text, transliterate accented / Cyrillic names to ASCII rather
+    // than silently switching back to a slow full-page graphic job.
+    if(mode==='graphic'){
+      setPrinterProgress('Preparing graphic receipt (no logo)...');
+      await printXprinterRaster(await makeXprinterImage(b));
+      await printXprinterTicket(b);
+    }else{
+      const printable=prepareBookingForFastPrint(raw);
+      setPrinterProgress(xpReliableMode()?'iPhone reliable printing — keep Safari open...':'Printing receipt and confirmation ticket...');
+      await printXprinterFast(printable);
+    }
+    setPrinterProgress('Receipt and confirmation ticket bytes sent. Check the paper; the printer cannot acknowledge physical completion.');
+    toast('Receipt sent — check the printer paper.','success');
+    return true;
+  }catch(error){
+    console.error('Bluetooth print interrupted:',error);
+    const note='Print interrupted: '+(error.message||String(error));
+    setPrinterProgress(note+' — open the saved booking to retry, not Book Now.');
+    toast(note,'error');
+    return false;
+  }finally{printerBusy=false;button.disabled=false;button.innerHTML=old;updatePrinterUI();}
+}
+// Transliteration applies to printer bytes only. All Firebase booking values
+// and the displayed receipt retain their original spelling.
+const XP_CYRILLIC={
+  'А':'A','Б':'B','В':'V','Г':'G','Д':'D','Е':'E','Ё':'Yo','Ж':'Zh','З':'Z','И':'I','Й':'Y','К':'K','Л':'L','М':'M','Н':'N','О':'O','П':'P','Р':'R','С':'S','Т':'T','У':'U','Ф':'F','Х':'Kh','Ц':'Ts','Ч':'Ch','Ш':'Sh','Щ':'Shch','Ъ':'','Ы':'Y','Ь':'','Э':'E','Ю':'Yu','Я':'Ya'
+};
+function xpPlainText(value){
+  return Array.from(String(value??'')).map(ch=>{
+    const upper=ch.toUpperCase();
+    if(XP_CYRILLIC[upper]!==undefined){
+      const tr=XP_CYRILLIC[upper];return ch===upper?tr:tr.charAt(0).toLowerCase()+tr.slice(1);
+    }
+    if(ch==='ß')return 'ss';if(ch==='Æ')return 'AE';if(ch==='æ')return 'ae';
+    const ascii=ch.normalize('NFKD').replace(/[\u0300-\u036f]/g,'');
+    return /^[\x20-\x7E]+$/.test(ascii)?ascii:'?';
+  }).join('').replace(/[\x00-\x1F\x7F]/g,' ');
+}
+function prepareBookingForFastPrint(b){
+  const out={...b};
+  for(const key of ['guestName','roomNumber','hotel','disco','seller','day','date'])out[key]=xpPlainText(out[key]);
+  return out;
+}
+function sanitizeBookingForEscPos(b){
+  // Prevent newlines/control characters from guest data being interpreted as printer commands.
+  const safe={...b};for(const key of ['guestName','roomNumber','hotel','disco','seller','day','date']){
+    safe[key]=String(safe[key]??'').replace(/[\x00-\x1F\x7F]/g,' ').slice(0,100);
+  }return safe;
+}
+function findBooking(id){return cache.bookings.find(b=>b.id===id)}
+function receiptHtmlSafe(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function closeReceipt(){
+  if(receiptPrintBusy){toast('Please wait for the print transfer to finish.','info');return;}
+  const modal=document.getElementById('receiptModal');
+  document.getElementById('receiptInner').classList.remove('boxed-layout');
+  document.getElementById('receiptInner').classList.remove('example2-layout');
+  document.getElementById('receiptInner').classList.remove('preview-docs');
+  modal.classList.remove('show');
+  modal.style.removeProperty('display');
+  document.body.classList.remove('receipt-open');
+}
+function cancelReceiptPrinting(){
+  if(receiptPrintBusy){toast('Printing already started; wait for it to finish.','info');return;}
+  closeReceipt();
+  toast('Print cancelled. The saved booking is still available in Report.','info');
+}
+function bookingPolicyItems(){return [
+  'All tickets/bookings are non-refundable.',
+  'If you cancel before the party/event starts, you will receive a 50% refund of your total payment.',
+  'Once the party/event has started, no refunds will be given, and refund requests will not be accepted.',
+  'No-shows and late arrivals are not eligible for a refund.'
+];}
+const CODE128_PATTERNS=["BaBbBb","BbBaBb","BbBbBa","AbAbBc","AbAcBb","AcAbBb","AbBbAc","AbBcAb","AcBbAb","BbAbAc","BbAcAb","BcAbAb","AaBbCb","AbBaCb","AbBbCa","AaCbBb","AbCaBb","AbCbBa","BbCbAa","BbAaCb","BbAbCa","BaCbAb","BbCaAb","CaBaCa","CaAbBb","CbAaBb","CbAbBa","CaBbAb","CbBaAb","CbBbAa","BaBaBc","BaBcBa","BcBaBa","AaAcBc","AcAaBc","AcAcBa","AaBcAc","AcBaAc","AcBcAa","BaAcAc","BcAaAc","BcAcAa","AaBaCc","AaBcCa","AcBaCa","AaCaBc","AaCcBa","AcCaBa","CaCaBa","BaAcCa","BcAaCa","BaCaAc","BaCcAa","BaCaCa","CaAaBc","CaAcBa","CcAaBa","CaBaAc","CaBcAa","CcBaAa","CaDaAa","BbAdAa","DcAaAa","AaAbBd","AaAdBb","AbAaBd","AbAdBa","AdAaBb","AdAbBa","AaBbAd","AaBdAb","AbBaAd","AbBdAa","AdBaAb","AdBbAa","BdAbAa","BbAaAd","DaCaAa","BdAaAb","AcDaAa","AaAbDb","AbAaDb","AbAbDa","AaDbAb","AbDaAb","AbDbAa","DaAbAb","DbAaAb","DbAbAa","BaBaDa","BaDaBa","DaBaBa","AaAaDc","AaAcDa","AcAaDa","AaDaAc","AaDcAa","DaAaAc","DaAcAa","AaCaDa","AaDaCa","CaAaDa","DaAaCa","BaAdAb","BaAbAd","BaAbCb","BcCaAaB"];
+function ticketBarcodeValue(b){return 'FS-T'+String(b.id??'');}
+function code128SvgDataUrl(value){
+  const text=String(value??'').replace(/[^\x20-\x7E]/g,'?');
+  const codes=[104];
+  for(const ch of text)codes.push(ch.charCodeAt(0)-32);
+  let check=codes[0];for(let i=1;i<codes.length;i++)check+=i*codes[i];
+  codes.push(check%103,106);
+  let x=10;const bars=[];
+  for(const code of codes){
+    for(const part of CODE128_PATTERNS[code]){
+      const width='ABCD'.indexOf(part.toUpperCase())+1;
+      if(part===part.toUpperCase())bars.push(`<rect x="${x}" y="2" width="${width}" height="44"/>`);
+      x+=width;
+    }
+  }
+  const width=x+10;
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} 62" role="img"><rect width="100%" height="100%" fill="white"/>${bars.join('')}<text x="50%" y="59" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="black">${text}</text></svg>`;
+  return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+}
+function buildReceiptAndTicketPreviewHtml(b){
+  const esc=receiptHtmlSafe;
+  const money=n=>esc(b.currency||'')+' '+esc(n??0);
+  const discount=Number(b.discount||0);
+  const policy=bookingPolicyItems().map(item=>`<li>${esc(item)}</li>`).join('');
+  const logo='five-stars-original-logo.png';
+  return `<div class="preview-stack">    <section class="preview-sheet">      <img class="preview-logo" src="${logo}" alt="Five Stars Animation logo">      <h2 class="preview-company">FIVE STARS SO FUN<small>ANIMATION</small></h2>      <div class="preview-doc-title">BOOKING RECEIPT</div>      <div class="preview-line"></div>      <div class="preview-row"><span class="lbl">RECEIPT</span><span class="val bold">FS-${esc(b.id)}</span></div>      <div class="preview-row"><span class="lbl">DATE</span><span class="val">${esc(b.date)}</span></div>      <div class="preview-row"><span class="lbl">DAY</span><span class="val">${esc(b.day)}</span></div>      <div class="preview-sect-gap"><div class="preview-row" style="margin-bottom:2px"><span class="lbl">GUEST</span><span class="val"></span></div><div class="preview-guest-value">${esc(b.guestName)}</div></div>      <div class="preview-row preview-sect-gap"><span class="lbl">ROOM</span><span class="val bold">${esc(b.roomNumber)}</span></div>      <div class="preview-sect-gap"><div class="preview-row" style="margin-bottom:2px"><span class="lbl">HOTEL</span><span class="val"></span></div><div class="preview-guest-value" style="font-weight:500">${esc(b.hotel)}</div></div>      <div class="preview-row preview-sect-gap"><span class="lbl">DISCO</span><span class="val bold">${esc(b.disco)}</span></div>      <div class="preview-line"></div>      <div class="preview-row"><span class="lbl">PAX</span><span class="val bold" style="font-size:30px">${esc(b.pax)}</span></div>      <div class="preview-row"><span class="lbl">PRICE/PAX</span><span class="val">${money(b.pricePerPax)}</span></div>      <div class="preview-row"><span class="lbl">SUBTOTAL</span><span class="val">${money(b.subtotal)}</span></div>      ${discount>0?`<div class="preview-row"><span class="lbl">DISCOUNT</span><span class="val">-${money(b.discount)}</span></div>`:''}      <div class="preview-line"></div>      <div class="preview-total-label">TOTAL AMOUNT</div>      <div class="preview-total-value">${money(b.total)}</div>      <div class="preview-row"><span class="lbl">DEPOSIT</span><span class="val">${money(b.deposit)}</span></div>      <div class="preview-row"><span class="lbl">BALANCE</span><span class="val bold">${money(b.rest)}</span></div>      <div class="preview-row"><span class="lbl">SELLER</span><span class="val">${esc(b.seller)}</span></div>      <div class="preview-line"></div>      <div class="preview-foot-note">1 FREE DRINK INCLUDED</div>      <div class="preview-policy-title">BOOKING &amp; REFUND POLICY</div>      <ul class="preview-policy-list">${policy}</ul>      <div class="preview-line"></div>      <div class="preview-thanks">THANK YOU!</div>    </section>    <section class="preview-sheet">      <img class="preview-logo" src="${logo}" alt="Five Stars Animation logo">      <h2 class="preview-company">FIVE STARS SO FUN<small>ANIMATION</small></h2>      <div class="preview-doc-title">CONFIRMATION TICKET</div>      <div class="preview-line"></div>      <div class="preview-row"><span class="lbl">TICKET</span><span class="val bold">FS-T${esc(b.id)}</span></div>      <div class="preview-row"><span class="lbl">DATE</span><span class="val">${esc(b.date)}</span></div>      <div class="preview-row"><span class="lbl">DAY</span><span class="val">${esc(b.day)}</span></div>      <div class="preview-sect-gap"><div class="preview-row" style="margin-bottom:2px"><span class="lbl">HOTEL</span><span class="val"></span></div><div class="preview-guest-value" style="font-weight:500">${esc(b.hotel)}</div></div>      <div class="preview-row preview-sect-gap"><span class="lbl">DISCO</span><span class="val bold">${esc(b.disco)}</span></div>      <div class="preview-pax-area">        <div class="preview-pax-label">PAX</div>        <div class="preview-pax-value">${esc(b.pax)}</div>      </div>      <div class="preview-line"></div>      <div class="ticket-qr-wrap"><img src="${code128SvgDataUrl(ticketBarcodeValue(b))}" alt="Confirmation ticket barcode"><div class="ticket-qr-caption">SCAN TICKET CODE</div></div>      <div class="preview-foot-note">1 FREE DRINK INCLUDED</div>      <div class="preview-line"></div>      <div class="preview-policy-title">BOOKING &amp; REFUND POLICY</div>      <ul class="preview-policy-list">${policy}</ul>      <div class="preview-line"></div>      <div class="preview-thanks">THANK YOU!</div>    </section>  </div>`;
+}
+
+function showReceipt(b){
+  if(!b){toast('Booking not found. Try opening it from Report.','error');return;}
+  lastBooking=b;
+  const modal=document.getElementById('receiptModal');
+  const inner=document.getElementById('receiptInner');
+  const header=document.getElementById('receiptModalTitle');
+  header.textContent='Booking Confirmed — FS-'+b.id;
+  modal.classList.add('show');modal.style.setProperty('display','flex','important');document.body.classList.add('receipt-open');
+  document.querySelector('.receipt-more-print').open=false;
+  inner.scrollTop=0;
+  inner.classList.remove('boxed-layout');
+  inner.classList.remove('example2-layout');
+  inner.classList.add('preview-docs');
+  try{
+    inner.innerHTML=buildReceiptAndTicketPreviewHtml(b);
+  }catch(error){
+    console.error('Receipt preview failed:',error);
+    inner.classList.remove('preview-docs');
+    inner.innerHTML=`<div class="rcomp">FIVE STARS BOOKING</div><p style="text-align:center">Booking FS-${receiptHtmlSafe(b.id)} saved successfully.</p><p style="text-align:center">Print using the button below.</p>`;
+  }
+  inner.scrollTop=0;
+}
+document.getElementById('closeReceiptBtn').addEventListener('click',cancelReceiptPrinting);
+document.getElementById('closeReceiptTopBtn').addEventListener('click',cancelReceiptPrinting);
+document.getElementById('receiptModal').addEventListener('click',function(e){if(e.target===this)cancelReceiptPrinting()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('receiptModal').classList.contains('show'))cancelReceiptPrinting()});
+// A single print action: optionally ask for Bluetooth connection, then send once.
+// Holding the guard during the device picker also prevents overlapping requests.
+let receiptPrintBusy=false;
+function updateReceiptPrintControls(busy){
+  const btn=document.getElementById('btPrintBtn');
+  const cancel=document.getElementById('closeReceiptBtn');
+  const top=document.getElementById('closeReceiptTopBtn');
+  btn.disabled=busy;cancel.disabled=busy;top.disabled=busy;
+}
+document.getElementById('btPrintBtn').addEventListener('click',async function(){
+  if(!lastBooking||receiptPrintBusy)return;
+  receiptPrintBusy=true;
+  updateReceiptPrintControls(true);
+  try{
+    if(!printerReady){
+      if(isIOSPrinterDevice()&&!navigator.bluetooth){
+        toast('Enable the beacio Safari extension and reopen this website.','info');return;
+      }
+      const connected=await connectPrinter();
+      if(!connected){const st=document.getElementById('savedPrintStatus');if(st)st.textContent='Printer not connected. Try Connect Printer in Settings, then PRINT again.';return;}
+    }
+    const printed=await directPrint(lastBooking);
+    if(!printed){const st=document.getElementById('savedPrintStatus');if(st)st.textContent='Printing was not completed. Check the printer connection and try again.';}
+    if(printed){
+      const status=document.getElementById('savedPrintStatus');if(status)status.textContent='Receipt and confirmation ticket data sent. Please check the XP-P502A paper output.';
+      // Sending was completed. Actual paper output must be checked on the printer.
+      receiptPrintBusy=false;
+      closeReceipt();
+    }
+  }finally{
+    receiptPrintBusy=false;
+    updateReceiptPrintControls(false);
+  }
+});
+document.getElementById('iosPrintBtn').addEventListener('click',function(){if(lastBooking)nativePrintReceipt(lastBooking)});
+
+
+/* Optional image export for sharing, not needed for Web Bluetooth printing. */
+document.getElementById('xprinterShareBtn').addEventListener('click', async function(){
+  if (!lastBooking) { toast('Open a booking first.','info'); return; }
+  const button=this, oldLabel=button.innerHTML;
+  button.disabled=true;button.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> Preparing 58 mm image...';
+  try { await shareXprinterReceipt(lastBooking); }
+  catch(err){ console.error('XPrinter export failed:',err);toast('Could not create image: '+(err.message||err),'error'); }
+  finally{button.disabled=false;button.innerHTML=oldLabel;}
+});
+
+async function makeXprinterImage(booking){
+  // Example 2 receipt image; only used by the optional GRAPHIC mode/export.
+  const W=384, margin=18, L=margin+8, R=W-margin-8, MAX_H=9000;
+  const canvas=document.createElement('canvas');canvas.width=W;canvas.height=MAX_H;
+  const g=canvas.getContext('2d',{alpha:false});
+  if(!g)throw new Error('Receipt drawing is unavailable');
+  g.fillStyle='#fff';g.fillRect(0,0,W,MAX_H);g.fillStyle='#000';g.textBaseline='top';
+  let y=16;
+  function font(size=23,heavy=false){g.font=`${heavy?'800':'500'} ${size}px Arial,sans-serif`;}
+  function width(t,size=23,heavy=false){font(size,heavy);return g.measureText(String(t)).width;}
+  function draw(t,x,top,size=23,heavy=false,side='left'){
+    font(size,heavy);g.textAlign=side;g.fillText(String(t??''),x,top);g.textAlign='left';
+  }
+  function center(t,size=26,heavy=true){draw(t,W/2,y,size,heavy,'center');y+=size+8;}
+  function dash(){for(let x=margin;x<W-margin;x+=16)g.fillRect(x,y,9,2);y+=15;}
+  function wrap(t,maxWidth,size=23,heavy=false){
+    const words=String(t??'').replace(/[\x00-\x1f\x7f]/g,' ').split(/\s+/).filter(Boolean), lines=[];
+    let line='';
+    for(let word of words){
+      while(width(word,size,heavy)>maxWidth&&word.length>1){
+        if(line){lines.push(line);line='';}
+        let cut=1;while(cut<word.length&&width(word.slice(0,cut+1),size,heavy)<=maxWidth)cut++;
+        lines.push(word.slice(0,cut));word=word.slice(cut);
+      }
+      const trial=line?line+' '+word:word;
+      if(width(trial,size,heavy)<=maxWidth)line=trial;
+      else{if(line)lines.push(line);line=word;}
+    }
+    if(line)lines.push(line);
+    return lines.length?lines:[''];
+  }
+  function row(label,value,heavy=false){
+    label=String(label);value=String(value??'');
+    const space=R-L-13;
+    if(width(label,21,true)+width(value,23,heavy)<=space){
+      draw(label,L,y,21,true);draw(value,R,y,23,heavy,'right');y+=32;
+    }else{
+      draw(label,L,y,21,true);y+=26;
+      for(const line of wrap(value,R-L,23,heavy)){draw(line,L,y,23,heavy);y+=30;}
+    }
+  }
+  center('FIVE STARS BOOKING',27,true);dash();center('BOOKING RECEIPT',26,true);
+  row('No','FS-'+booking.id,true);row('Date',booking.date);row('Seller',booking.seller);
+  dash();row('Guest',booking.guestName,true);row('Hotel',booking.hotel,true);
+  row('Disco',booking.disco,true);row('Room',booking.roomNumber,true);
+  y+=5;draw('PAX',L,y,29,true);draw(booking.pax,R,y-5,50,true,'right');y+=62;
+  dash();
+  draw('TOTAL AMOUNT',L,y,25,true);y+=31;
+  draw(`${booking.currency||''} ${booking.total}`,R,y,39,true,'right');y+=50;
+  row('Deposit',`${booking.currency||''} ${booking.deposit}`);
+  row('Balance',`${booking.currency||''} ${booking.rest}`);
+  dash();center('Thank You',21,false);center('Five Stars Booking',21,false);
+  y+=12;
+  if(y>=MAX_H)throw new Error('Receipt too long');
+  const final=document.createElement('canvas');final.width=W;final.height=Math.ceil(y);
+  const dest=final.getContext('2d',{alpha:false});dest.fillStyle='#fff';dest.fillRect(0,0,W,y);
+  dest.drawImage(canvas,0,0,W,y,0,0,W,y);return final;
+}
+async function shareXprinterReceipt(booking){
+  const canvas=await makeXprinterImage(booking);
+  const blob=await new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(new Error('PNG encoding unavailable')),'image/png'));
+  const name='FiveStars_FS-'+String(booking.id)+'_58mm.png';
+  const file=new File([blob],name,{type:'image/png'});
+  // iPhone Safari offers the iOS Share sheet. XPrinter may or may not register as
+  // a share destination; Save to Files, then import using XPrinter Image Print.
+  if(navigator.share && navigator.canShare && navigator.canShare({files:[file]})){
+    try{
+      await navigator.share({files:[file],title:'Five Stars booking receipt'});
+      toast('Image shared. In XPrinter, choose Image Print and your XP-P502A.','info');
+      return;
+    }catch(err){if(err.name==='AbortError')return;console.warn('Share sheet unavailable:',err)}
+  }
+  const url=URL.createObjectURL(blob),link=document.createElement('a');
+  link.href=url;link.download=name;link.style.display='none';document.body.appendChild(link);link.click();link.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),60000);
+  toast('Image saved. Open XPrinter > PDF/Image printing > select the 58 mm image.','info');
+}
+
+function printTextSafe(value){return String(value==null?'':value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))}
+function nativePrintReceipt(b){
+  if(!b)return;
+  document.getElementById('nativePrintDocument')?.remove();
+  // Escape user booking details when placing them in the printable HTML.
+  const container=document.createElement('div');container.id='nativePrintDocument';
+  container.innerHTML=`<div class="receipt-inner">${document.getElementById('receiptInner').innerHTML}</div>`;
+  document.body.appendChild(container);
+  const cleanup=()=>{container.remove();window.removeEventListener('afterprint',cleanup)};
+  window.addEventListener('afterprint',cleanup);
+  window.print();
+  setTimeout(cleanup,90000);
+}
+
+
+// FAST RECEIPT: ESC/POS device fonts, no graphic logo and no second ticket.
+function xpAsciiCurrency(symbol){return ({'£':'GBP','$':'USD','€':'EUR','L.E':'EGP'})[symbol]||xpPlainText(symbol||'');}
+function xpFastTextBlocks(b){
+  const enc=new TextEncoder(),bytes=[];
+  const add=(...n)=>bytes.push(...n);
+  const write=t=>{for(const n of enc.encode(String(t)))bytes.push(n)};
+  const align=n=>add(0x1B,0x61,n);
+  const bold=on=>add(0x1B,0x45,on?1:0);
+  const double=on=>add(0x1D,0x21,on?0x11:0x00);
+  const clean=t=>xpPlainText(t==null?'':t).replace(/[\x00-\x1F\x7F]/g,' ').replace(/\s+/g,' ').trim();
+  const money=t=>xpAsciiCurrency(b.currency)+' '+clean(t==null?0:t);
+  function wrap(t,max=32){
+    const words=clean(t).split(' ').filter(Boolean),lines=[];let line='';
+    for(let word of words){
+      while(word.length>max){if(line){lines.push(line);line='';}lines.push(word.slice(0,max));word=word.slice(max);}
+      if(!word)continue;
+      const test=line?line+' '+word:word;
+      if(test.length>max){if(line)lines.push(line);line=word;}else line=test;
+    }
+    if(line)lines.push(line);return lines.length?lines:[''];
+  }
+  function dash(){align(0);double(false);bold(false);write('--------------------------------\n');}
+  function feed(lines=1){for(let i=0;i<lines;i++)write('\n');}
+  function row(label,value){
+    align(0);double(false);bold(false);
+    const k=clean(label)+':',v=clean(value);
+    if(Math.max(k.length,14)+v.length<=32)write(k.padEnd(14,' ')+v+'\n');
+    else{write(k+'\n');for(const part of wrap(v,30))write('  '+part+'\n');}
+  }
+  function centered(text, isBold=false){align(1);bold(isBold);for(const part of wrap(text,32))write(part+'\n');bold(false);align(0);}
+  function enlargedPair(label,value){align(0);bold(true);write(clean(label)+'\n');align(1);double(true);for(const part of wrap(clean(value),16))write(part+'\n');double(false);bold(false);align(0);}
+  function printPolicy(){
+    centered('1 FREE DRINK INCLUDED', true);feed(1);centered('BOOKING & REFUND POLICY', true);align(0);
+    const lines=bookingPolicyItems();
+    for(const item of lines){
+      const parts=wrap('* '+item,30);
+      for(const part of parts)write(part+'\n');
+    }
+    dash();
+  }
+  function barcode(text){
+    const value=String(text??'').replace(/[^\x20-\x7E]/g,'?');
+    const data=enc.encode('{B'+value);
+    align(1);add(0x1D,0x48,0x02);add(0x1D,0x68,0x50);add(0x1D,0x77,0x02);
+    add(0x1D,0x6B,0x49,data.length);add(...data);feed(1);align(0);
+  }
+  function start(){add(0x1B,0x40,0x1B,0x4D,0x00,0x1B,0x32);}
+  function receipt(){
+    centered('FIVE STARS SO FUN', true);centered('ANIMATION', true);centered('BOOKING RECEIPT', true);dash();
+    row('Receipt','FS-'+b.id);row('Date',b.date);row('Day',b.day);
+    row('Guest',b.guestName);row('Room',b.roomNumber);row('Hotel',b.hotel);row('Disco',b.disco);dash();
+    row('PAX',b.pax);row('Price/Pax',money(b.pricePerPax));row('Subtotal',money(b.subtotal));
+    if(Number(b.discount||0)>0)row('Discount','-'+money(b.discount));
+    dash(); enlargedPair('TOTAL AMOUNT', money(b.total));
+    row('Deposit',money(b.deposit));row('Balance',money(b.rest));row('Seller',b.seller);dash();
+    printPolicy(); centered('THANK YOU!', true); feed(3);
+  }
+  function ticket(){
+    centered('FIVE STARS SO FUN', true);centered('ANIMATION', true);centered('CONFIRMATION TICKET', true);dash();
+    row('Ticket','FS-T'+b.id);row('Date',b.date);row('Day',b.day);row('Hotel',b.hotel);row('Disco',b.disco);dash();
+    enlargedPair('PAX', clean(b.pax));dash(); barcode(ticketBarcodeValue(b)); centered('SCAN TICKET CODE', true); feed(1);
+    printPolicy(); centered('THANK YOU!', true); feed(4);
+  }
+  function receiptAndTicket(){receipt();ticket();}
+  function footer(){align(0);double(false);bold(false);write('\n');}
+  return {
+    start:()=>{bytes.length=0;start();return Uint8Array.from(bytes)},
+    receipt:()=>{bytes.length=0;receiptAndTicket();return Uint8Array.from(bytes)},
+    ticket:()=>{bytes.length=0;start();ticket();return Uint8Array.from(bytes)},
+    footer:()=>{bytes.length=0;footer();return Uint8Array.from(bytes)}
+  };
+}
+async function printXprinterFast(b){
+  const blocks=xpFastTextBlocks(b);const a=blocks.start(),r=blocks.receipt(),f=blocks.footer();
+  const combined=new Uint8Array(a.length+r.length+f.length);
+  combined.set(a,0);combined.set(r,a.length);combined.set(f,a.length+r.length);
+  // Single bounded transfer, no raster commands, no printed logo.
+  await btWriteBytes(combined,(current,total)=>{
+    if(!isIOSPrinterDevice()&&current%100<20)setPrinterProgress('Receipt sent: '+Math.round(current/total*100)+'%');
+  });
+}
+async function printXprinterTicket(b){
+  const blocks=xpFastTextBlocks(prepareBookingForFastPrint(sanitizeBookingForEscPos(b)));
+  await btWriteBytes(blocks.ticket());
+}
+async function buildIPhoneReceiptBytes(booking){
+  if(!booking)throw new Error('Open a saved booking first');
+  if(document.getElementById('printMode')?.value==='graphic')return xpFullRasterBytes(await makeXprinterImage(booking));
+  return escPos(prepareBookingForFastPrint(sanitizeBookingForEscPos(booking)));
+}
+function xpFullRasterBytes(source){
+  const WIDTH=384,HEIGHT=source.height,ROW=48,STRIPE=64;
+  const pix=source.getContext('2d',{willReadFrequently:true}).getImageData(0,0,WIDTH,HEIGHT).data;
+  const out=[0x1B,0x40,0x1B,0x33,0x00];
+  for(let start=0;start<HEIGHT;start+=STRIPE){
+    const rows=Math.min(STRIPE,HEIGHT-start);
+    out.push(0x1D,0x76,0x30,0x00,ROW,0,rows&255,rows>>8);
+    for(let y=0;y<rows;y++){
+      const line=new Uint8Array(ROW);
+      for(let x=0;x<WIDTH;x++){
+        const p=((start+y)*WIDTH+x)*4;
+        if((pix[p]*299+pix[p+1]*587+pix[p+2]*114)/1000<205)line[x>>3]|=(0x80>>(x&7));
+      }
+      for(const n of line)out.push(n);
+    }
+  }
+  out.push(0x1B,0x32,0x0A,0x0A);
+  return Uint8Array.from(out);
+}
+// Convert the same 58 mm booking receipt preview into monochrome
+// ESC/POS raster stripes (GS v 0), including the booking receipt only.
+// 384 dots = 48 bytes per line, the standard printable width on many 58 mm printers.
+// Real-printer raster support still needs to be verified; Text mode remains a fallback.
+async function printXprinterRaster(source){
+  const WIDTH=384; // matches makeXprinterImage: large letters stay at full 384-dot resolution
+  const HEIGHT=source.width===WIDTH?source.height:Math.ceil(source.height*WIDTH/source.width);
+  const canvas=document.createElement('canvas');canvas.width=WIDTH;canvas.height=HEIGHT;
+  const ctx=canvas.getContext('2d',{willReadFrequently:true,alpha:false});
+  if(!ctx)throw new Error('Browser canvas is not available');
+  ctx.fillStyle='#fff';ctx.fillRect(0,0,WIDTH,HEIGHT);ctx.drawImage(source,0,0,WIDTH,HEIGHT);
+  let pixels;
+  try{pixels=ctx.getImageData(0,0,WIDTH,HEIGHT).data;}
+  catch(error){throw new Error('Could not read the receipt image for printing');}
+  // ESC @, line spacing 0. Unlike the previous implementation, do not send
+  // a cutter command to this portable tear-off printer.
+  await btWriteBytes(new Uint8Array([0x1B,0x40,0x1B,0x33,0x00]));
+  const BYTES_PER_LINE=WIDTH/8,STRIPE_ROWS=64;
+  for(let y0=0;y0<HEIGHT;y0+=STRIPE_ROWS){
+    const rows=Math.min(STRIPE_ROWS,HEIGHT-y0);
+    const bytes=new Uint8Array(8+BYTES_PER_LINE*rows);
+    bytes.set([0x1D,0x76,0x30,0x00,BYTES_PER_LINE&255,BYTES_PER_LINE>>8,rows&255,rows>>8]);
+    for(let y=0;y<rows;y++){
+      for(let x=0;x<WIDTH;x++){
+        const off=((y0+y)*WIDTH+x)*4;
+        const brightness=(pixels[off]*299+pixels[off+1]*587+pixels[off+2]*114)/1000;
+        if(brightness<205)bytes[8+y*BYTES_PER_LINE+(x>>3)]|=(0x80>>(x&7));
+      }
+    }
+    await btWriteBytes(bytes);
+    const percent=Math.round(100*(y0+rows)/HEIGHT);
+    setPrinterProgress('Sending booking receipt: '+percent+'% — keep printer on and nearby.');
+    // Let the small thermal printer clear its line buffer between image bands.
+    await new Promise(resolve=>setTimeout(resolve,70));
+  }
+  await btWriteBytes(new Uint8Array([0x1B,0x32,0x0A,0x0A,0x0A]));
+}
+
+function escPos(b){
+  if(!b)return new Uint8Array(0);
+  const blocks=xpFastTextBlocks(prepareBookingForFastPrint(b));
+  const segments=[blocks.start(),blocks.receipt(),blocks.footer()];
+  const n=segments.reduce((acc,part)=>acc+part.length,0);
+  const out=new Uint8Array(n);let pos=0;
+  for(const part of segments){out.set(part,pos);pos+=part.length;}
+  return out;
+}
+
+// LANGUAGE
+document.querySelectorAll('.lbtn').forEach(btn=>{btn.addEventListener('click',function(){document.querySelectorAll('.lbtn').forEach(b=>b.classList.remove('active'));this.classList.add('active');currentLang=this.dataset.lang;applyT();updateDay();if(document.getElementById('reportsView').classList.contains('active'))loadReport()})});
+function applyT(){
+  document.querySelectorAll('[data-t]').forEach(el=>{const v=t(el.getAttribute('data-t'));if(v)el.textContent=v});
+  const dict=UI_TX[currentLang]||{};
+  const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+  let node;
+  while((node=walker.nextNode())){
+    if(node.__baseText===undefined)node.__baseText=node.nodeValue.trim();
+    const original=node.__baseText;
+    if(!original)continue;
+    const start=node.nodeValue.match(/^\s*/)[0],end=node.nodeValue.match(/\s*$/)[0];
+    node.nodeValue=start+(dict[original]||original)+end;
+  }
+  document.querySelectorAll('[placeholder]').forEach(el=>{
+    if(!el.dataset.originalPlaceholder)el.dataset.originalPlaceholder=el.placeholder;
+    el.placeholder=dict[el.dataset.originalPlaceholder]||el.dataset.originalPlaceholder;
+  });
+}
+
+// LOGO
+document.getElementById('logoArea').addEventListener('click',()=>document.getElementById('logoUpload').click());
+document.getElementById('logoUpload').addEventListener('change',function(){const f=this.files[0];if(!f)return;const r=new FileReader();r.onload=function(e){document.getElementById('logoImg').src=e.target.result;cache.logo=e.target.result;saveAllData();toast('Logo updated','success')};r.readAsDataURL(f)});
+function loadLogo(){if(cache.logo)document.getElementById('logoImg').src=cache.logo}
+
+// NAV
+function switchView(vid){document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));const nb=document.querySelector(`.nav-btn[data-view="${vid}"]`);if(nb)nb.classList.add('active');document.querySelectorAll('.view-section').forEach(v=>v.classList.remove('active'));document.getElementById(vid).classList.add('active');if(vid==='reportsView')loadReport();if(vid==='settingsView')renderSettings()}
+document.querySelector('.nav-btn[data-view="bookingView"]').addEventListener('click',()=>switchView('bookingView'));
+document.querySelector('.nav-btn[data-view="reportsView"]').addEventListener('click',()=>switchView('reportsView'));
+document.querySelector('.nav-btn[data-view="settingsView"]').addEventListener('click',()=>showAdmin(()=>switchView('settingsView')));
+document.getElementById('settingsBtn').addEventListener('click',()=>showAdmin(()=>switchView('settingsView')));
+
+// REPORTS
+document.getElementById('reportDate').addEventListener('change',function(){document.querySelectorAll('.rfbtn').forEach(b=>b.classList.remove('active'));const v=this.value;if(v===getTodayStr())document.querySelector('[data-filter="today"]').classList.add('active');else if(v===getTomorrowStr())document.querySelector('[data-filter="tomorrow"]').classList.add('active');else document.querySelector('[data-filter="custom"]').classList.add('active');loadReport()});
+document.querySelectorAll('.rfbtn').forEach(btn=>{btn.addEventListener('click',function(){document.querySelectorAll('.rfbtn').forEach(b=>b.classList.remove('active'));this.classList.add('active');const f=this.dataset.filter;if(f==='today')document.getElementById('reportDate').value=getTodayStr();else if(f==='tomorrow')document.getElementById('reportDate').value=getTomorrowStr();loadReport()})});
+
+function loadReport(){const dv=document.getElementById('reportDate').value;const bk=cache.bookings.filter(b=>b.date===dv);const ct=document.getElementById('reportContent');if(!bk.length){ct.innerHTML=`<div class="nodata"><i class="fa-solid fa-inbox"></i>${t('noData')}</div>`;return}const tp=bk.reduce((s,b)=>s+b.pax,0);const ct2={};bk.forEach(b=>{if(!ct2[b.currency])ct2[b.currency]=0;ct2[b.currency]+=b.total});let h=`<button class="print-rpt-btn" id="printRptBtn"><i class="fa-solid fa-print"></i> ${t('printReport')}</button>`;h+=`<div class="report-summary"><div class="scard"><div class="sval">${tp}</div><div class="slbl">${t('totalGuests')}</div></div>`;Object.keys(ct2).forEach(c=>{h+=`<div class="scard"><div class="sval">${c} ${ct2[c]}</div><div class="slbl">${t('totalRevenue')} (${c})</div></div>`});h+='</div>';h+=`<div class="form-card" style="overflow-x:auto"><table class="rtable"><thead><tr><th>#</th><th>Guest</th><th>Room</th><th>Disco</th><th>Pax</th><th>Total</th><th>Dep</th><th>Rest</th><th>Seller</th><th></th></tr></thead><tbody>`;bk.forEach((b,i)=>{h+=`<tr><td>${i+1}</td><td>${b.guestName}</td><td>${b.roomNumber}</td><td style="font-size:10px">${b.disco}</td><td>${b.pax}</td><td>${b.currency}${b.total}</td><td>${b.currency}${b.deposit}</td><td>${b.currency}${b.rest}</td><td>${b.seller}</td><td><button class="actb areceipt" onclick="showReceipt(findBooking(${b.id}));document.getElementById('receiptModal').classList.add('show')"><i class="fa-solid fa-receipt"></i></button></td></tr>`});h+='</tbody></table></div>';h+='<div class="form-card"><div class="form-card-title"><i class="fa-solid fa-coins"></i> Currency Breakdown</div>';Object.keys(ct2).forEach(c=>{const cb=bk.filter(b=>b.currency===c);const cp=cb.reduce((s,b)=>s+b.pax,0);const cd=cb.reduce((s,b)=>s+b.deposit,0);const cr=cb.reduce((s,b)=>s+b.rest,0);h+=`<div style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05)"><div style="font-weight:700;color:var(--accent2);margin-bottom:4px">${c}</div><div style="display:flex;gap:12px;font-size:12px;color:var(--text2);flex-wrap:wrap"><span>${t('totalPax')}:<strong style="color:var(--text)"> ${cp}</strong></span><span>Total:<strong style="color:var(--text)"> ${c} ${ct2[c]}</strong></span><span>Dep:<strong style="color:var(--success)"> ${c} ${cd}</strong></span><span>Rest:<strong style="color:var(--accent2)"> ${c} ${cr}</strong></span></div></div>`});h+='</div>';ct.innerHTML=h;document.getElementById('printRptBtn').addEventListener('click',()=>printReport(dv,bk))}
+
+function printReport(ds,bk){const tp=bk.reduce((s,b)=>s+b.pax,0);const ct2={};bk.forEach(b=>{if(!ct2[b.currency])ct2[b.currency]=0;ct2[b.currency]+=b.total});let rows='';bk.forEach((b,i)=>{rows+=`<tr><td>${i+1}</td><td>${b.guestName}</td><td>${b.roomNumber}</td><td>${b.disco}</td><td>${b.pax}</td><td>${b.currency}${b.total}</td><td>${b.currency}${b.deposit}</td><td>${b.currency}${b.rest}</td><td>${b.seller}</td></tr>`});let cl='';Object.keys(ct2).forEach(c=>{cl+=`<div><strong>${c}:</strong> ${ct2[c]}</div>`});const w=window.open('','_blank','width=600,height=800');w.document.write(`<!DOCTYPE html><html><head><title>Report</title><style>body{font-family:'Courier New',monospace;font-size:12px;padding:20px;max-width:700px;margin:0 auto}h2{text-align:center}h4{text-align:center;color:#666;margin-bottom:16px}table{width:100%;border-collapse:collapse;margin:10px 0}th,td{padding:6px;border:1px solid #ddd;font-size:11px;text-align:left}th{background:#f5f5f5}.sum{margin:16px 0;padding:10px;border:1px dashed #999;border-radius:6px}</style></head><body><h2>FIVE STARS SO FUN ANIMATION</h2><h4>${ds} - ${HOTEL_NAME}</h4><div class="sum"><div><strong>Total Guests:</strong> ${tp}</div>${cl}</div><table><thead><tr><th>#</th><th>Guest</th><th>Room</th><th>Disco</th><th>Pax</th><th>Total</th><th>Dep</th><th>Rest</th><th>Seller</th></tr></thead><tbody>${rows}</tbody></table><script>window.print();<\/script></body></html>`);w.document.close()}
+
+// EDIT BOOKING
+document.getElementById('editCancelBtn').addEventListener('click',()=>document.getElementById('editModal').classList.remove('show'));
+document.getElementById('editModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('show')});
+function openEdit(id){const b=findBooking(id);if(!b)return;document.getElementById('editId').value=b.id;document.getElementById('editGuest').value=b.guestName;document.getElementById('editRoom').value=b.roomNumber;document.getElementById('editPax').value=b.pax;document.getElementById('editDisc').value=b.discount;document.getElementById('editDep').value=b.deposit;const ds=document.getElementById('editDisco');ds.innerHTML='';cache.discos.forEach((d,i)=>{const o=document.createElement('option');o.value=i;o.textContent=d.name;if(d.name===b.disco)o.selected=true;ds.appendChild(o)});function popEP(){const di=parseInt(document.getElementById('editDisco').value);const ps=document.getElementById('editPrice');ps.innerHTML='';if(cache.discos[di]){Object.keys(cache.discos[di].prices).forEach(cur=>{const o=document.createElement('option');o.value=cur;o.textContent=cur+' '+cache.discos[di].prices[cur];if(cur===b.currency)o.selected=true;ps.appendChild(o)})}updEPrev()}popEP();ds.onchange=function(){b.currency=null;popEP()};document.getElementById('editPrice').onchange=updEPrev;document.getElementById('editPax').oninput=updEPrev;document.getElementById('editDisc').oninput=updEPrev;document.getElementById('editDep').oninput=updEPrev;const ss=document.getElementById('editSeller');ss.innerHTML='';cache.sellers.forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;if(s===b.seller)o.selected=true;ss.appendChild(o)});document.getElementById('editModal').classList.add('show')}
+function updEPrev(){const di=parseInt(document.getElementById('editDisco').value);const cur=document.getElementById('editPrice').value;const pax=parseInt(document.getElementById('editPax').value)||1;const disc=parseFloat(document.getElementById('editDisc').value)||0;const dep=parseFloat(document.getElementById('editDep').value)||0;if(!cache.discos[di]||!cache.discos[di].prices[cur]){document.getElementById('editPreview').innerHTML='';return}const pp=cache.discos[di].prices[cur];const sub=pp*pax;const tot=Math.max(0,sub-disc);const rest=Math.max(0,tot-dep);document.getElementById('editPreview').innerHTML=`<div style="display:flex;justify-content:space-between"><span>Total</span><strong style="color:var(--accent2)">${cur} ${tot}</strong></div><div style="display:flex;justify-content:space-between"><span>Rest</span><strong style="color:var(--accent2)">${cur} ${rest}</strong></div>`}
+document.getElementById('editSaveBtn').addEventListener('click',async function(){const id=parseInt(document.getElementById('editId').value);const idx=cache.bookings.findIndex(b=>b.id===id);if(idx===-1)return;const di=parseInt(document.getElementById('editDisco').value);const cur=document.getElementById('editPrice').value;if(!cache.discos[di]||!cache.discos[di].prices[cur])return;const pp=cache.discos[di].prices[cur];const pax=parseInt(document.getElementById('editPax').value)||1;const disc=parseFloat(document.getElementById('editDisc').value)||0;const dep=parseFloat(document.getElementById('editDep').value)||0;const sub=pp*pax;const tot=Math.max(0,sub-disc);const rest=Math.max(0,tot-dep);const oldBooking=cache.bookings[idx];const dv=oldBooking.date;cache.bookings[idx]={...cache.bookings[idx],guestName:document.getElementById('editGuest').value.trim(),roomNumber:document.getElementById('editRoom').value.trim(),pax:pax,disco:cache.discos[di].name,currency:cur,pricePerPax:pp,discount:disc,deposit:dep,subtotal:sub,total:tot,rest:rest,seller:document.getElementById('editSeller').value,day:t('days')[new Date(dv+'T00:00:00').getDay()]};if(!await saveBooking(cache.bookings[idx])){cache.bookings[idx]=oldBooking;return}document.getElementById('editModal').classList.remove('show');toast(t('bookingUpdated'),'success');renderManage();loadReport()});
+async function deleteBooking(id){const booking=findBooking(id);if(!booking)return;if(!await removeBookingFromFirestore(booking))return;cache.bookings=cache.bookings.filter(b=>b.id!==id);toast(t('bookingDeleted'),'success');renderManage();loadReport()}
+
+// MANAGE BOOKINGS
+document.getElementById('manageDate').addEventListener('change',renderManage);
+function renderManage(){const dv=document.getElementById('manageDate').value;const bk=cache.bookings.filter(b=>b.date===dv);const ct=document.getElementById('manageList');if(!bk.length){ct.innerHTML=`<div class="nodata" style="padding:20px"><i class="fa-solid fa-inbox"></i>${t('noData')}</div>`;return}let h=`<table class="rtable" style="margin-top:10px"><thead><tr><th>#</th><th>Guest</th><th>Room</th><th>Disco</th><th>Pax</th><th>Total</th><th></th></tr></thead><tbody>`;bk.forEach((b,i)=>{h+=`<tr><td>${i+1}</td><td>${b.guestName}</td><td>${b.roomNumber}</td><td style="font-size:10px">${b.disco}</td><td>${b.pax}</td><td>${b.currency}${b.total}</td><td><div class="act-btns"><button class="actb aedit" onclick="openEdit(${b.id})"><i class="fa-solid fa-pen"></i></button><button class="actb adel" onclick="showAdmin(()=>deleteBooking(${b.id}))"><i class="fa-solid fa-trash"></i></button><button class="actb areceipt" onclick="showReceipt(findBooking(${b.id}));document.getElementById('receiptModal').classList.add('show')"><i class="fa-solid fa-receipt"></i></button></div></td></tr>`});h+='</tbody></table>';ct.innerHTML=h}
+
+// DISCO MANAGEMENT
+document.getElementById('discoEditCancelBtn').addEventListener('click',()=>document.getElementById('discoEditModal').classList.remove('show'));
+document.getElementById('discoEditModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('show')});
+document.getElementById('addDiscoBtn').addEventListener('click',function(){document.getElementById('discoEditTitle').textContent='Add New Disco';document.getElementById('discoEditIndex').value='-1';document.getElementById('discoEditName').value='';document.getElementById('discoPriceGBP').value='';document.getElementById('discoPriceUSD').value='';document.getElementById('discoPriceEUR').value='';document.getElementById('discoPriceEGP').value='';document.getElementById('discoEditModal').classList.add('show');setTimeout(()=>document.getElementById('discoEditName').focus(),100)});
+function openDiscoEdit(idx){const d=cache.discos[idx];if(!d)return;document.getElementById('discoEditTitle').textContent='Edit Disco';document.getElementById('discoEditIndex').value=idx;document.getElementById('discoEditName').value=d.name;document.getElementById('discoPriceGBP').value=d.prices['£']||'';document.getElementById('discoPriceUSD').value=d.prices['$']||'';document.getElementById('discoPriceEUR').value=d.prices['€']||'';document.getElementById('discoPriceEGP').value=d.prices['L.E']||'';document.getElementById('discoEditModal').classList.add('show')}
+document.getElementById('discoEditSaveBtn').addEventListener('click',function(){const name=document.getElementById('discoEditName').value.trim();if(!name){toast('Enter disco name','error');return}const gbp=parseFloat(document.getElementById('discoPriceGBP').value)||0;const usd=parseFloat(document.getElementById('discoPriceUSD').value)||0;const eur=parseFloat(document.getElementById('discoPriceEUR').value)||0;const egp=parseFloat(document.getElementById('discoPriceEGP').value)||0;if(gbp===0&&usd===0&&eur===0&&egp===0){toast('Enter at least one price','error');return}const prices={};if(gbp>0)prices['£']=gbp;if(usd>0)prices['$']=usd;if(eur>0)prices['€']=eur;if(egp>0)prices['L.E']=egp;const idx=parseInt(document.getElementById('discoEditIndex').value);if(idx===-1){cache.discos.push({name,prices});toast('Disco added','success')}else{cache.discos[idx]={name,prices};toast('Disco updated','success')}saveAllData();document.getElementById('discoEditModal').classList.remove('show');popDiscos();renderDiscos()});
+function deleteDisco(idx){cache.discos.splice(idx,1);saveAllData();popDiscos();renderDiscos();toast('Disco deleted','success')}
+function renderDiscos(){const ct=document.getElementById('discoList');if(!ct)return;let h='';cache.discos.forEach((d,i)=>{const ps=Object.entries(d.prices).map(([c,v])=>c+v).join(' / ');h+=`<div class="disco-item"><div style="display:flex;justify-content:space-between;align-items:center"><div><div class="dname">${d.name}</div><div class="dprice">${ps}</div></div><div class="act-btns"><button class="actb aedit" onclick="openDiscoEdit(${i})"><i class="fa-solid fa-pen"></i></button><button class="actb adel" onclick="if(confirm('Delete?'))deleteDisco(${i})"><i class="fa-solid fa-trash"></i></button></div></div></div>`});if(!cache.discos.length)h='<div style="text-align:center;color:var(--text3);padding:20px">No discos added</div>';ct.innerHTML=h}
+
+// SETTINGS
+function renderSettings(){const sl=cache.sellers;const st=document.getElementById('sellerTags');st.innerHTML='';sl.forEach((s,i)=>{st.innerHTML+=`<span class="tag-item">${s} <span class="remove-tag" data-index="${i}"><i class="fa-solid fa-xmark"></i></span></span>`});document.querySelectorAll('.remove-tag').forEach(el=>{el.addEventListener('click',function(){cache.sellers.splice(parseInt(this.dataset.index),1);saveAllData();popSellers();renderSettings()})});renderManage();renderDiscos();updatePrinterUI()}
+document.getElementById('addSellerBtn').addEventListener('click',()=>{const inp=document.getElementById('newSellerInput');const v=inp.value.trim();if(!v)return;if(cache.sellers.includes(v)){toast(t('exists'),'error');return}cache.sellers.push(v);saveAllData();inp.value='';popSellers();renderSettings();toast(t('sellerAdded'),'success')});
+document.getElementById('newSellerInput').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('addSellerBtn').click()});
+document.getElementById('changePwBtn').addEventListener('click',()=>{const np=document.getElementById('newPwInput').value.trim();if(np.length<3){toast(t('minChars'),'error');return}cache.password=np;saveAllData();document.getElementById('newPwInput').value='';toast(t('pwChanged'),'success')});
+document.getElementById('changeAdminPwBtn').addEventListener('click',()=>{const np=document.getElementById('newAdminPwInput').value.trim();if(np.length<3){toast(t('minChars'),'error');return}cache.adminPassword=np;saveAllData();document.getElementById('newAdminPwInput').value='';toast(t('adminPwChanged'),'success')});
+document.getElementById('clearDataBtn').addEventListener('click',()=>showAdmin(async()=>{if(!await deleteAllHotelBookings())return;cache.bookings=[];if(!await resetReceiptCounter())return;toast(t('dataCleared'),'success');renderSettings()}));
+
+loadAllData().then(()=>{document.getElementById('pwInput').focus()});
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "Five Stars Booking",
+  "short_name": "Five Stars",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b2341",
+  "theme_color": "#0b2341",
+  "icons": [
+    {
+      "src": "five-stars-app-icon-192-v2.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "five-stars-app-icon-v2.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "five-stars-iphone-icon-v2.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
