@@ -637,7 +637,7 @@ body{min-width:0;line-height:1.5}
 .preview-policy-list li{margin:5px 0}
 .preview-thanks{text-align:center;font-size:18px;font-weight:900;margin-top:10px}
 .ticket-qr-wrap{text-align:center;margin:18px 0 6px}
-.ticket-qr-wrap img{display:block;width:min(100%,280px);height:92px;margin:0 auto;object-fit:contain;image-rendering:pixelated}
+.ticket-qr-wrap img{display:block;width:min(100%,320px);height:132px;margin:0 auto;object-fit:contain;image-rendering:pixelated}
 .ticket-qr-caption{text-align:center;font-size:14px;font-weight:800;margin:8px 0 0}
 @media (max-width:520px){
   .preview-sheet{padding:16px 14px}
@@ -654,7 +654,7 @@ body{min-width:0;line-height:1.5}
   .preview-foot-note{font-size:16px}
   .preview-policy-title{font-size:16px}
   .preview-policy-list{font-size:13px;padding-left:20px}
-  .ticket-qr-wrap img{width:100%;height:82px}
+  .ticket-qr-wrap img{width:100%;height:118px}
 }
 
 </style>
@@ -1387,7 +1387,7 @@ function xpFastTextBlocks(b){
   function barcode(text){
     const value=String(text??'').replace(/[^\x20-\x7E]/g,'?');
     const data=enc.encode('{B'+value);
-    align(1);add(0x1D,0x48,0x02);add(0x1D,0x68,0x50);add(0x1D,0x77,0x02);
+    align(1);add(0x1D,0x48,0x02);add(0x1D,0x68,0xA0);add(0x1D,0x77,0x02);
     add(0x1D,0x6B,0x49,data.length);add(...data);feed(1);align(0);
   }
   function start(){add(0x1B,0x40,0x1B,0x4D,0x00,0x1B,0x32);}
